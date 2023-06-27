@@ -24,21 +24,22 @@ Partial Class loginRegistro
     Private Sub InitializeComponent()
         textboxUsuario = New TextBox()
         TextBoxContraseña = New TextBox()
-        ActualizarBtn = New Button()
+        BtnLogin = New Button()
         Label1 = New Label()
         PictureBox1 = New PictureBox()
         Label2 = New Label()
         LinkRegistro = New LinkLabel()
         PanelLogin = New Panel()
+        LabelIncorrecto = New Label()
         PanelRegistro = New Panel()
         LinkLabel1 = New LinkLabel()
         Label4 = New Label()
-        Button1 = New Button()
-        TextBox5 = New TextBox()
-        TextBox4 = New TextBox()
-        TextBox3 = New TextBox()
-        TextBox2 = New TextBox()
-        TextBox1 = New TextBox()
+        BtnRegistrar = New Button()
+        TextBoxContraseñaR = New TextBox()
+        TextBoxUsuarioR = New TextBox()
+        TextBoxCorreo = New TextBox()
+        TextBoxApellido = New TextBox()
+        TextBoxNombre = New TextBox()
         Label3 = New Label()
         CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         PanelLogin.SuspendLayout()
@@ -70,22 +71,23 @@ Partial Class loginRegistro
         TextBoxContraseña.TabIndex = 49
         TextBoxContraseña.Text = "Contraseña"
         TextBoxContraseña.TextAlign = HorizontalAlignment.Center
+        TextBoxContraseña.UseSystemPasswordChar = True
         ' 
-        ' ActualizarBtn
+        ' BtnLogin
         ' 
-        ActualizarBtn.BackColor = Color.FromArgb(CByte(67), CByte(116), CByte(255))
-        ActualizarBtn.Cursor = Cursors.Hand
-        ActualizarBtn.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        ActualizarBtn.FlatAppearance.BorderSize = 0
-        ActualizarBtn.FlatStyle = FlatStyle.Flat
-        ActualizarBtn.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        ActualizarBtn.ForeColor = Color.White
-        ActualizarBtn.Location = New Point(23, 314)
-        ActualizarBtn.Name = "ActualizarBtn"
-        ActualizarBtn.Size = New Size(377, 51)
-        ActualizarBtn.TabIndex = 53
-        ActualizarBtn.Text = "Iniciar Sesión"
-        ActualizarBtn.UseVisualStyleBackColor = False
+        BtnLogin.BackColor = Color.FromArgb(CByte(67), CByte(116), CByte(255))
+        BtnLogin.Cursor = Cursors.Hand
+        BtnLogin.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        BtnLogin.FlatAppearance.BorderSize = 0
+        BtnLogin.FlatStyle = FlatStyle.Flat
+        BtnLogin.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        BtnLogin.ForeColor = Color.White
+        BtnLogin.Location = New Point(23, 314)
+        BtnLogin.Name = "BtnLogin"
+        BtnLogin.Size = New Size(377, 51)
+        BtnLogin.TabIndex = 53
+        BtnLogin.Text = "Iniciar Sesión"
+        BtnLogin.UseVisualStyleBackColor = False
         ' 
         ' Label1
         ' 
@@ -133,29 +135,44 @@ Partial Class loginRegistro
         ' 
         ' PanelLogin
         ' 
+        PanelLogin.Controls.Add(LabelIncorrecto)
         PanelLogin.Controls.Add(LinkRegistro)
         PanelLogin.Controls.Add(Label1)
         PanelLogin.Controls.Add(Label2)
         PanelLogin.Controls.Add(textboxUsuario)
         PanelLogin.Controls.Add(TextBoxContraseña)
-        PanelLogin.Controls.Add(ActualizarBtn)
+        PanelLogin.Controls.Add(BtnLogin)
         PanelLogin.Location = New Point(156, 56)
         PanelLogin.Name = "PanelLogin"
         PanelLogin.Size = New Size(430, 470)
         PanelLogin.TabIndex = 58
         ' 
+        ' LabelIncorrecto
+        ' 
+        LabelIncorrecto.AutoSize = True
+        LabelIncorrecto.BackColor = Color.FromArgb(CByte(255), CByte(222), CByte(222))
+        LabelIncorrecto.Font = New Font("Microsoft Sans Serif", 10.8F, FontStyle.Regular, GraphicsUnit.Point)
+        LabelIncorrecto.ForeColor = Color.Red
+        LabelIncorrecto.Location = New Point(61, 267)
+        LabelIncorrecto.Name = "LabelIncorrecto"
+        LabelIncorrecto.Padding = New Padding(20, 5, 20, 5)
+        LabelIncorrecto.Size = New Size(302, 32)
+        LabelIncorrecto.TabIndex = 58
+        LabelIncorrecto.Text = "usuario o contraseña incorrecta"
+        LabelIncorrecto.Visible = False
+        ' 
         ' PanelRegistro
         ' 
         PanelRegistro.Controls.Add(LinkLabel1)
         PanelRegistro.Controls.Add(Label4)
-        PanelRegistro.Controls.Add(Button1)
-        PanelRegistro.Controls.Add(TextBox5)
-        PanelRegistro.Controls.Add(TextBox4)
-        PanelRegistro.Controls.Add(TextBox3)
-        PanelRegistro.Controls.Add(TextBox2)
-        PanelRegistro.Controls.Add(TextBox1)
+        PanelRegistro.Controls.Add(BtnRegistrar)
+        PanelRegistro.Controls.Add(TextBoxContraseñaR)
+        PanelRegistro.Controls.Add(TextBoxUsuarioR)
+        PanelRegistro.Controls.Add(TextBoxCorreo)
+        PanelRegistro.Controls.Add(TextBoxApellido)
+        PanelRegistro.Controls.Add(TextBoxNombre)
         PanelRegistro.Controls.Add(Label3)
-        PanelRegistro.Location = New Point(639, 38)
+        PanelRegistro.Location = New Point(639, 23)
         PanelRegistro.Name = "PanelRegistro"
         PanelRegistro.Size = New Size(573, 504)
         PanelRegistro.TabIndex = 59
@@ -184,86 +201,86 @@ Partial Class loginRegistro
         Label4.TabIndex = 62
         Label4.Text = "Ya tienes cuenta?, "
         ' 
-        ' Button1
+        ' BtnRegistrar
         ' 
-        Button1.BackColor = Color.FromArgb(CByte(67), CByte(116), CByte(255))
-        Button1.Cursor = Cursors.Hand
-        Button1.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        Button1.FlatAppearance.BorderSize = 0
-        Button1.FlatStyle = FlatStyle.Flat
-        Button1.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        Button1.ForeColor = Color.White
-        Button1.Location = New Point(33, 404)
-        Button1.Name = "Button1"
-        Button1.Size = New Size(516, 51)
-        Button1.TabIndex = 61
-        Button1.Text = "Registrar"
-        Button1.UseVisualStyleBackColor = False
+        BtnRegistrar.BackColor = Color.FromArgb(CByte(67), CByte(116), CByte(255))
+        BtnRegistrar.Cursor = Cursors.Hand
+        BtnRegistrar.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        BtnRegistrar.FlatAppearance.BorderSize = 0
+        BtnRegistrar.FlatStyle = FlatStyle.Flat
+        BtnRegistrar.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        BtnRegistrar.ForeColor = Color.White
+        BtnRegistrar.Location = New Point(33, 404)
+        BtnRegistrar.Name = "BtnRegistrar"
+        BtnRegistrar.Size = New Size(516, 51)
+        BtnRegistrar.TabIndex = 61
+        BtnRegistrar.Text = "Registrar"
+        BtnRegistrar.UseVisualStyleBackColor = False
         ' 
-        ' TextBox5
+        ' TextBoxContraseñaR
         ' 
-        TextBox5.BackColor = Color.White
-        TextBox5.Font = New Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point)
-        TextBox5.ForeColor = Color.FromArgb(CByte(148), CByte(153), CByte(156))
-        TextBox5.Location = New Point(33, 332)
-        TextBox5.Name = "TextBox5"
-        TextBox5.ShortcutsEnabled = False
-        TextBox5.Size = New Size(516, 34)
-        TextBox5.TabIndex = 60
-        TextBox5.Text = "Contraseña"
-        TextBox5.TextAlign = HorizontalAlignment.Center
+        TextBoxContraseñaR.BackColor = Color.White
+        TextBoxContraseñaR.Font = New Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point)
+        TextBoxContraseñaR.ForeColor = Color.FromArgb(CByte(148), CByte(153), CByte(156))
+        TextBoxContraseñaR.Location = New Point(33, 332)
+        TextBoxContraseñaR.Name = "TextBoxContraseñaR"
+        TextBoxContraseñaR.ShortcutsEnabled = False
+        TextBoxContraseñaR.Size = New Size(516, 34)
+        TextBoxContraseñaR.TabIndex = 60
+        TextBoxContraseñaR.Text = "Contraseña"
+        TextBoxContraseñaR.TextAlign = HorizontalAlignment.Center
         ' 
-        ' TextBox4
+        ' TextBoxUsuarioR
         ' 
-        TextBox4.BackColor = Color.White
-        TextBox4.Font = New Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point)
-        TextBox4.ForeColor = Color.FromArgb(CByte(148), CByte(153), CByte(156))
-        TextBox4.Location = New Point(33, 263)
-        TextBox4.Name = "TextBox4"
-        TextBox4.ShortcutsEnabled = False
-        TextBox4.Size = New Size(516, 34)
-        TextBox4.TabIndex = 59
-        TextBox4.Text = "Usuario"
-        TextBox4.TextAlign = HorizontalAlignment.Center
+        TextBoxUsuarioR.BackColor = Color.White
+        TextBoxUsuarioR.Font = New Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point)
+        TextBoxUsuarioR.ForeColor = Color.FromArgb(CByte(148), CByte(153), CByte(156))
+        TextBoxUsuarioR.Location = New Point(33, 263)
+        TextBoxUsuarioR.Name = "TextBoxUsuarioR"
+        TextBoxUsuarioR.ShortcutsEnabled = False
+        TextBoxUsuarioR.Size = New Size(516, 34)
+        TextBoxUsuarioR.TabIndex = 59
+        TextBoxUsuarioR.Text = "Usuario"
+        TextBoxUsuarioR.TextAlign = HorizontalAlignment.Center
         ' 
-        ' TextBox3
+        ' TextBoxCorreo
         ' 
-        TextBox3.BackColor = Color.White
-        TextBox3.Font = New Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point)
-        TextBox3.ForeColor = Color.FromArgb(CByte(148), CByte(153), CByte(156))
-        TextBox3.Location = New Point(33, 191)
-        TextBox3.Name = "TextBox3"
-        TextBox3.ShortcutsEnabled = False
-        TextBox3.Size = New Size(516, 34)
-        TextBox3.TabIndex = 58
-        TextBox3.Text = "Correo"
-        TextBox3.TextAlign = HorizontalAlignment.Center
+        TextBoxCorreo.BackColor = Color.White
+        TextBoxCorreo.Font = New Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point)
+        TextBoxCorreo.ForeColor = Color.FromArgb(CByte(148), CByte(153), CByte(156))
+        TextBoxCorreo.Location = New Point(33, 191)
+        TextBoxCorreo.Name = "TextBoxCorreo"
+        TextBoxCorreo.ShortcutsEnabled = False
+        TextBoxCorreo.Size = New Size(516, 34)
+        TextBoxCorreo.TabIndex = 58
+        TextBoxCorreo.Text = "Correo"
+        TextBoxCorreo.TextAlign = HorizontalAlignment.Center
         ' 
-        ' TextBox2
+        ' TextBoxApellido
         ' 
-        TextBox2.BackColor = Color.White
-        TextBox2.Font = New Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point)
-        TextBox2.ForeColor = Color.FromArgb(CByte(148), CByte(153), CByte(156))
-        TextBox2.Location = New Point(303, 109)
-        TextBox2.Name = "TextBox2"
-        TextBox2.ShortcutsEnabled = False
-        TextBox2.Size = New Size(246, 34)
-        TextBox2.TabIndex = 57
-        TextBox2.Text = "Apellido"
-        TextBox2.TextAlign = HorizontalAlignment.Center
+        TextBoxApellido.BackColor = Color.White
+        TextBoxApellido.Font = New Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point)
+        TextBoxApellido.ForeColor = Color.FromArgb(CByte(148), CByte(153), CByte(156))
+        TextBoxApellido.Location = New Point(303, 109)
+        TextBoxApellido.Name = "TextBoxApellido"
+        TextBoxApellido.ShortcutsEnabled = False
+        TextBoxApellido.Size = New Size(246, 34)
+        TextBoxApellido.TabIndex = 57
+        TextBoxApellido.Text = "Apellido"
+        TextBoxApellido.TextAlign = HorizontalAlignment.Center
         ' 
-        ' TextBox1
+        ' TextBoxNombre
         ' 
-        TextBox1.BackColor = Color.White
-        TextBox1.Font = New Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point)
-        TextBox1.ForeColor = Color.FromArgb(CByte(148), CByte(153), CByte(156))
-        TextBox1.Location = New Point(33, 109)
-        TextBox1.Name = "TextBox1"
-        TextBox1.ShortcutsEnabled = False
-        TextBox1.Size = New Size(246, 34)
-        TextBox1.TabIndex = 56
-        TextBox1.Text = "Nombre"
-        TextBox1.TextAlign = HorizontalAlignment.Center
+        TextBoxNombre.BackColor = Color.White
+        TextBoxNombre.Font = New Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point)
+        TextBoxNombre.ForeColor = Color.FromArgb(CByte(148), CByte(153), CByte(156))
+        TextBoxNombre.Location = New Point(33, 109)
+        TextBoxNombre.Name = "TextBoxNombre"
+        TextBoxNombre.ShortcutsEnabled = False
+        TextBoxNombre.Size = New Size(246, 34)
+        TextBoxNombre.TabIndex = 56
+        TextBoxNombre.Text = "Nombre"
+        TextBoxNombre.TextAlign = HorizontalAlignment.Center
         ' 
         ' Label3
         ' 
@@ -299,7 +316,7 @@ Partial Class loginRegistro
 
     Friend WithEvents textboxUsuario As TextBox
     Friend WithEvents TextBoxContraseña As TextBox
-    Friend WithEvents ActualizarBtn As Button
+    Friend WithEvents BtnLogin As Button
     Friend WithEvents Label1 As Label
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Label2 As Label
@@ -307,12 +324,13 @@ Partial Class loginRegistro
     Friend WithEvents PanelLogin As Panel
     Friend WithEvents PanelRegistro As Panel
     Friend WithEvents Label3 As Label
-    Friend WithEvents Button1 As Button
-    Friend WithEvents TextBox5 As TextBox
-    Friend WithEvents TextBox4 As TextBox
-    Friend WithEvents TextBox3 As TextBox
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents BtnRegistrar As Button
+    Friend WithEvents TextBoxContraseñaR As TextBox
+    Friend WithEvents TextBoxUsuarioR As TextBox
+    Friend WithEvents TextBoxCorreo As TextBox
+    Friend WithEvents TextBoxApellido As TextBox
+    Friend WithEvents TextBoxNombre As TextBox
     Friend WithEvents LinkLabel1 As LinkLabel
     Friend WithEvents Label4 As Label
+    Friend WithEvents LabelIncorrecto As Label
 End Class
