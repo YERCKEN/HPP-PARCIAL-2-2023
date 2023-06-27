@@ -63,9 +63,89 @@ Namespace My.Resources
         '''<summary>
         '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property fondoperfil() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("fondoperfil", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property fondoperfil1() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("fondoperfil1", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property login() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("login", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property PERFIl() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("PERFIl", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property salir() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("salir", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property salir_new() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("salir new", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property salir1() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("salir1", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property salir2() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("salir2", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property Sin_título_2() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Sin título-2", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

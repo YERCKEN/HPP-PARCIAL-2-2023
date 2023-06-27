@@ -161,10 +161,33 @@ Public Class loginRegistro
 
         If querysBd.Login(textboxUsuario.Text, TextBoxContraseña.Text) > 0 Then
 
-            LabelIncorrecto.Visible = False
-        Else
 
-            LabelIncorrecto.Visible = True
+            variablesGlobales.inicioSesion = True
+
+            'SELECT
+            querysBd.ObtenerUsuariosConRoles(textboxUsuario.Text.ToString())
+            Debug.WriteLine(vbCrLf & vbCrLf & "DATOS:")
+            Debug.WriteLine("ID: " & querysBd.usuarioID)
+            Debug.WriteLine("Nombre: " & querysBd.nombre)
+            Debug.WriteLine("Apellido: " & querysBd.apellido)
+            Debug.WriteLine("Correo: " & querysBd.correo)
+            Debug.WriteLine("Usuario: " & querysBd.UsuarioObtenido)
+            Debug.WriteLine("ROL: " & querysBd.Rol & vbCrLf & vbCrLf)
+
+            'VISIBILIDAD
+            LabelIncorrecto.Visible = False
+
+            Me.Close()
+
+            If querysBd.Rol = "cliente" Then
+                inicioCliente.Show()
+                inicioCliente.Owner = Form1
+            Else
+                inicioAdmin.Show()
+                inicioAdmin.Owner = Form1
+
+            End If
+
         End If
 
     End Sub

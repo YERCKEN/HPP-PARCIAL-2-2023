@@ -51,7 +51,7 @@ Public Class Form1
     End Sub
 
 
-    'BARRA HERADER MOVIMIENTO relativo
+    'BARRA HERADER MOVIMIENTO relativo---------------------------------------------------------------------
     Private Sub Form1_LocationChanged(sender As Object, e As EventArgs) Handles MyBase.LocationChanged
 
         'loginRegistro
@@ -59,6 +59,10 @@ Public Class Form1
             loginRegistro.Location = New Point(Me.Location.X, Me.Location.Y + 49)
         End If
 
+        'Inicio
+        If inicioCliente IsNot Nothing Then
+            inicioCliente.Location = New Point(Me.Location.X, Me.Location.Y + 49)
+        End If
     End Sub
 
     'MOVIMIENTO-=====================================================================================

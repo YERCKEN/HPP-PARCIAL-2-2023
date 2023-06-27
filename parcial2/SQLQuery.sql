@@ -20,6 +20,21 @@ CREATE TABLE Usuarios (
   rolId INT FOREIGN KEY REFERENCES Roles(id)
 );
 
+-- Crear la tabla "Tickets"
+CREATE TABLE Tickets (
+  idTiket INT IDENTITY(1,1) PRIMARY KEY,
+  idUsuario INT FOREIGN KEY REFERENCES Usuarios(id),
+  estado VARCHAR(255),
+  tipoSoporte VARCHAR(255),
+  equipo VARCHAR(255),
+  costoInicial DECIMAL(10, 2),
+  costoFinal DECIMAL(10, 2),
+  fechaInicio DATETIME,
+  fechaFinalizacion DATETIME,
+  observacion VARCHAR(255)
+);
+
+
 --PROCEDIMIENTO ALMACENADO PARA LOGIN
 
 CREATE PROCEDURE VerificarLogin
@@ -79,16 +94,78 @@ END;
 EXEC InsertarUsuario 'John', 'Doe', 'JONH 1', 'johndoe@example.com', 'contraseña123', 1;
 
 
+--PROCEDIMIENTO SELECT DE DATOS==========================================================================================
+
+CREATE PROCEDURE ObtenerUsuariosConRoles
+    @usuario VARCHAR(255)
+AS
+BEGIN
+    SELECT
+        U.id AS UsuarioID,
+        U.nombre AS Nombre,
+        U.apellido AS Apellido,
+        U.usuario AS Usuario,
+        U.correo AS Correo,
+        R.rol AS Rol
+    FROM
+        Usuarios U
+        INNER JOIN Roles R ON U.rolId = R.id
+    WHERE
+        U.usuario = @usuario;
+END
+
+EXEC ObtenerUsuariosConRoles @usuario = 'je07pe';
 
 
 
 
 
+--procedimiento insert nuevo tiket 
+
+CREATE PROCEDURE InsertarTicket
+    @idUsuario INT,
+    @observacion VARCHAR(255),
+    @tipoSoporte VARCHAR(255),
+    @equipo VARCHAR(255)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    INSERT INTO Tickets (idUsuario, observacion, tipoSoporte, equipo)
+    VALUES (@idUsuario, @observacion, @tipoSoporte, @equipo);
+END
 
 
 
+EXEC InsertarTicket
+    @idUsuario = 2,
+    @observacion = 'nuevo problema',
+    @tipoSoporte = 'Soporte técnico',
+    @equipo = 'Laptop 2'
 
 
+
+	-- Crear el procedimiento almacenado
+CREATE PROCEDURE ObtenerTicketsPorUsuario
+  @idUsuario INT
+AS
+BEGIN
+  SELECT T.idTiket,
+         U.nombre AS nombreUsuario,
+         T.estado,
+         T.tipoSoporte,
+         T.equipo,
+         T.costoInicial,
+         T.costoFinal,
+         T.fechaInicio,
+         T.fechaFinalizacion,
+         T.observacion
+  FROM Tickets T
+  INNER JOIN Usuarios U ON T.idUsuario = U.id
+  WHERE T.idUsuario = @idUsuario;
+END;
+
+ EXEC ObtenerTicketsPorUsuario @idUsuario = 2;
 
 
 
@@ -106,3 +183,9 @@ VALUES ('Edwar', 'Gonzalez', 'edwar', 'edwar@correo.com', '123', 1),
 SELECT *FROM Usuarios;
 
 
+
+select *from Tickets
+--tikets 
+
+INSERT INTO Tickets (idUsuario, estado, tipoSoporte, equipo, costoInicial, costoFinal)
+VALUES (2, 'Activo', 'Soporte Técnico', 'Equipo XYZ', 100.00, 150.00);
