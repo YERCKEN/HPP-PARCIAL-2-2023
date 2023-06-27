@@ -23,8 +23,8 @@ Partial Class inicioCliente
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As ComponentModel.ComponentResourceManager = New ComponentModel.ComponentResourceManager(GetType(inicioCliente))
-        Dim DataGridViewCellStyle5 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
         btnPerfil = New PictureBox()
         PanelPerfil = New Panel()
         Label5 = New Label()
@@ -35,11 +35,22 @@ Partial Class inicioCliente
         LabelRol = New Label()
         LabelNombre = New Label()
         DataGridView1 = New DataGridView()
+        BtnFactura = New Button()
+        BtnNuevoT = New Button()
+        panelIngresoDatos2 = New Panel()
+        ListaMostrarLibros = New ComboBox()
+        BtnVolver = New Button()
+        NewClienteBtn = New Button()
+        TextBoxObservacion = New TextBox()
         Label1 = New Label()
+        Label6 = New Label()
+        TextBoxCosto = New TextBox()
+        Label7 = New Label()
         CType(btnPerfil, ComponentModel.ISupportInitialize).BeginInit()
         PanelPerfil.SuspendLayout()
         CType(btnCerrarSesion, ComponentModel.ISupportInitialize).BeginInit()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
+        panelIngresoDatos2.SuspendLayout()
         SuspendLayout()
         ' 
         ' btnPerfil
@@ -54,6 +65,7 @@ Partial Class inicioCliente
         ' 
         ' PanelPerfil
         ' 
+        PanelPerfil.BackColor = Color.Transparent
         PanelPerfil.BackgroundImage = CType(resources.GetObject("PanelPerfil.BackgroundImage"), Image)
         PanelPerfil.Controls.Add(Label5)
         PanelPerfil.Controls.Add(LabelUsuario)
@@ -62,7 +74,7 @@ Partial Class inicioCliente
         PanelPerfil.Controls.Add(LabelCorreo)
         PanelPerfil.Controls.Add(LabelRol)
         PanelPerfil.Controls.Add(LabelNombre)
-        PanelPerfil.Location = New Point(801, 126)
+        PanelPerfil.Location = New Point(801, 82)
         PanelPerfil.Name = "PanelPerfil"
         PanelPerfil.Size = New Size(414, 413)
         PanelPerfil.TabIndex = 1
@@ -150,55 +162,190 @@ Partial Class inicioCliente
         DataGridView1.BorderStyle = BorderStyle.None
         DataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.None
         DataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle5.BackColor = Color.White
-        DataGridViewCellStyle5.Font = New Font("Montserrat", 10.2F, FontStyle.Bold, GraphicsUnit.Point)
-        DataGridViewCellStyle5.ForeColor = Color.Red
-        DataGridViewCellStyle5.Padding = New Padding(5)
-        DataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle5.WrapMode = DataGridViewTriState.True
-        DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = Color.White
+        DataGridViewCellStyle1.Font = New Font("Montserrat", 10.2F, FontStyle.Bold, GraphicsUnit.Point)
+        DataGridViewCellStyle1.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        DataGridViewCellStyle1.Padding = New Padding(5)
+        DataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = DataGridViewTriState.True
+        DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         DataGridView1.ColumnHeadersHeight = 50
-        DataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle6.BackColor = SystemColors.Window
-        DataGridViewCellStyle6.Font = New Font("Microsoft JhengHei UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point)
-        DataGridViewCellStyle6.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        DataGridViewCellStyle6.SelectionBackColor = SystemColors.Control
-        DataGridViewCellStyle6.SelectionForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        DataGridViewCellStyle6.WrapMode = DataGridViewTriState.False
-        DataGridView1.DefaultCellStyle = DataGridViewCellStyle6
-        DataGridView1.Location = New Point(72, 277)
+        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = SystemColors.Window
+        DataGridViewCellStyle2.Font = New Font("Microsoft JhengHei UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle2.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        DataGridViewCellStyle2.SelectionBackColor = SystemColors.Control
+        DataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        DataGridViewCellStyle2.WrapMode = DataGridViewTriState.False
+        DataGridView1.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridView1.EnableHeadersVisualStyles = False
+        DataGridView1.Location = New Point(43, 505)
         DataGridView1.Margin = New Padding(4, 3, 4, 3)
         DataGridView1.Name = "DataGridView1"
         DataGridView1.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
         DataGridView1.RowHeadersVisible = False
         DataGridView1.RowHeadersWidth = 51
         DataGridView1.RowTemplate.Height = 31
-        DataGridView1.Size = New Size(1143, 262)
+        DataGridView1.Size = New Size(1204, 262)
         DataGridView1.TabIndex = 3
+        ' 
+        ' BtnFactura
+        ' 
+        BtnFactura.BackColor = Color.FromArgb(CByte(12), CByte(202), CByte(102))
+        BtnFactura.Cursor = Cursors.Hand
+        BtnFactura.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        BtnFactura.FlatAppearance.BorderSize = 0
+        BtnFactura.FlatStyle = FlatStyle.Flat
+        BtnFactura.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        BtnFactura.ForeColor = Color.White
+        BtnFactura.Location = New Point(131, 308)
+        BtnFactura.Name = "BtnFactura"
+        BtnFactura.Size = New Size(458, 51)
+        BtnFactura.TabIndex = 58
+        BtnFactura.Text = "Factura.xlsx"
+        BtnFactura.UseVisualStyleBackColor = False
+        ' 
+        ' BtnNuevoT
+        ' 
+        BtnNuevoT.BackColor = Color.FromArgb(CByte(67), CByte(116), CByte(255))
+        BtnNuevoT.Cursor = Cursors.Hand
+        BtnNuevoT.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        BtnNuevoT.FlatAppearance.BorderSize = 0
+        BtnNuevoT.FlatStyle = FlatStyle.Flat
+        BtnNuevoT.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        BtnNuevoT.ForeColor = Color.White
+        BtnNuevoT.Location = New Point(131, 223)
+        BtnNuevoT.Name = "BtnNuevoT"
+        BtnNuevoT.Size = New Size(458, 51)
+        BtnNuevoT.TabIndex = 57
+        BtnNuevoT.Text = "Nuevo"
+        BtnNuevoT.UseVisualStyleBackColor = False
+        ' 
+        ' panelIngresoDatos2
+        ' 
+        panelIngresoDatos2.Controls.Add(ListaMostrarLibros)
+        panelIngresoDatos2.Controls.Add(BtnVolver)
+        panelIngresoDatos2.Controls.Add(NewClienteBtn)
+        panelIngresoDatos2.Controls.Add(TextBoxObservacion)
+        panelIngresoDatos2.Controls.Add(Label1)
+        panelIngresoDatos2.Controls.Add(Label6)
+        panelIngresoDatos2.Controls.Add(TextBoxCosto)
+        panelIngresoDatos2.Controls.Add(Label7)
+        panelIngresoDatos2.Location = New Point(43, 189)
+        panelIngresoDatos2.Name = "panelIngresoDatos2"
+        panelIngresoDatos2.Size = New Size(681, 270)
+        panelIngresoDatos2.TabIndex = 59
+        panelIngresoDatos2.Visible = False
+        ' 
+        ' ListaMostrarLibros
+        ' 
+        ListaMostrarLibros.Font = New Font("Montserrat", 10.2F, FontStyle.Bold, GraphicsUnit.Point)
+        ListaMostrarLibros.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        ListaMostrarLibros.FormattingEnabled = True
+        ListaMostrarLibros.Items.AddRange(New Object() {"Libros Prestados", "Libros Devueltos", "Todos"})
+        ListaMostrarLibros.Location = New Point(5, 112)
+        ListaMostrarLibros.Name = "ListaMostrarLibros"
+        ListaMostrarLibros.Size = New Size(275, 32)
+        ListaMostrarLibros.TabIndex = 49
+        ' 
+        ' BtnVolver
+        ' 
+        BtnVolver.BackColor = Color.FromArgb(CByte(229), CByte(229), CByte(229))
+        BtnVolver.Cursor = Cursors.Hand
+        BtnVolver.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        BtnVolver.FlatAppearance.BorderSize = 0
+        BtnVolver.FlatStyle = FlatStyle.Flat
+        BtnVolver.Font = New Font("Microsoft Sans Serif", 28.2F, FontStyle.Regular, GraphicsUnit.Point)
+        BtnVolver.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        BtnVolver.Location = New Point(415, 176)
+        BtnVolver.Name = "BtnVolver"
+        BtnVolver.Size = New Size(87, 68)
+        BtnVolver.TabIndex = 48
+        BtnVolver.Text = "🔙"
+        BtnVolver.UseVisualStyleBackColor = False
+        ' 
+        ' NewClienteBtn
+        ' 
+        NewClienteBtn.BackColor = Color.FromArgb(CByte(82), CByte(235), CByte(163))
+        NewClienteBtn.Cursor = Cursors.Hand
+        NewClienteBtn.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        NewClienteBtn.FlatAppearance.BorderSize = 0
+        NewClienteBtn.FlatStyle = FlatStyle.Flat
+        NewClienteBtn.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        NewClienteBtn.ForeColor = Color.White
+        NewClienteBtn.Location = New Point(379, 46)
+        NewClienteBtn.Name = "NewClienteBtn"
+        NewClienteBtn.Size = New Size(185, 51)
+        NewClienteBtn.TabIndex = 47
+        NewClienteBtn.Text = "Ingresar"
+        NewClienteBtn.UseVisualStyleBackColor = False
+        ' 
+        ' TextBoxObservacion
+        ' 
+        TextBoxObservacion.Font = New Font("Montserrat", 10.2F, FontStyle.Bold, GraphicsUnit.Point)
+        TextBoxObservacion.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        TextBoxObservacion.Location = New Point(4, 197)
+        TextBoxObservacion.Multiline = True
+        TextBoxObservacion.Name = "TextBoxObservacion"
+        TextBoxObservacion.Size = New Size(276, 68)
+        TextBoxObservacion.TabIndex = 19
         ' 
         ' Label1
         ' 
         Label1.AutoSize = True
-        Label1.Font = New Font("Montserrat", 13.7999992F, FontStyle.Bold, GraphicsUnit.Point)
-        Label1.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        Label1.Location = New Point(72, 231)
+        Label1.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        Label1.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        Label1.Location = New Point(4, 164)
         Label1.Name = "Label1"
-        Label1.Size = New Size(96, 32)
-        Label1.TabIndex = 55
-        Label1.Text = "tickets"
+        Label1.Size = New Size(145, 27)
+        Label1.TabIndex = 20
+        Label1.Text = "Observación"
+        ' 
+        ' Label6
+        ' 
+        Label6.AutoSize = True
+        Label6.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        Label6.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        Label6.Location = New Point(5, 79)
+        Label6.Name = "Label6"
+        Label6.Size = New Size(66, 27)
+        Label6.TabIndex = 16
+        Label6.Text = "Libro"
+        ' 
+        ' TextBoxCosto
+        ' 
+        TextBoxCosto.Font = New Font("Microsoft Sans Serif", 14.999999F, FontStyle.Bold, GraphicsUnit.Point)
+        TextBoxCosto.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        TextBoxCosto.Location = New Point(5, 31)
+        TextBoxCosto.Name = "TextBoxCosto"
+        TextBoxCosto.Size = New Size(275, 36)
+        TextBoxCosto.TabIndex = 14
+        ' 
+        ' Label7
+        ' 
+        Label7.AutoSize = True
+        Label7.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        Label7.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        Label7.Location = New Point(5, 3)
+        Label7.Name = "Label7"
+        Label7.Size = New Size(73, 27)
+        Label7.TabIndex = 18
+        Label7.Text = "Costo"
         ' 
         ' inicioCliente
         ' 
         AutoScaleDimensions = New SizeF(9F, 21F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.White
-        ClientSize = New Size(1288, 572)
-        Controls.Add(Label1)
-        Controls.Add(DataGridView1)
-        Controls.Add(PanelPerfil)
+        ClientSize = New Size(1288, 800)
+        Controls.Add(panelIngresoDatos2)
+        Controls.Add(BtnFactura)
+        Controls.Add(BtnNuevoT)
         Controls.Add(btnPerfil)
+        Controls.Add(PanelPerfil)
+        Controls.Add(DataGridView1)
         FormBorderStyle = FormBorderStyle.None
         Name = "inicioCliente"
         StartPosition = FormStartPosition.CenterScreen
@@ -208,8 +355,9 @@ Partial Class inicioCliente
         PanelPerfil.PerformLayout()
         CType(btnCerrarSesion, ComponentModel.ISupportInitialize).EndInit()
         CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
+        panelIngresoDatos2.ResumeLayout(False)
+        panelIngresoDatos2.PerformLayout()
         ResumeLayout(False)
-        PerformLayout()
     End Sub
 
     Friend WithEvents btnPerfil As PictureBox
@@ -222,5 +370,16 @@ Partial Class inicioCliente
     Friend WithEvents LabelUsuario As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents panelNuevoT As Panel
+    Friend WithEvents BtnNuevoT As Button
+    Friend WithEvents BtnFactura As Button
+    Friend WithEvents panelIngresoDatos2 As Panel
+    Friend WithEvents ListaMostrarLibros As ComboBox
+    Friend WithEvents BtnVolver As Button
+    Friend WithEvents NewClienteBtn As Button
+    Friend WithEvents TextBoxObservacion As TextBox
     Friend WithEvents Label1 As Label
+    Friend WithEvents Label6 As Label
+    Friend WithEvents TextBoxCosto As TextBox
+    Friend WithEvents Label7 As Label
 End Class

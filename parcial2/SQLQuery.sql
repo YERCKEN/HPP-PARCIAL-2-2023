@@ -121,7 +121,7 @@ EXEC ObtenerUsuariosConRoles @usuario = 'je07pe';
 
 
 --procedimiento insert nuevo tiket 
-
+--procedimiento insert nuevo tiket 
 CREATE PROCEDURE InsertarTicket
     @idUsuario INT,
     @observacion VARCHAR(255),
@@ -131,17 +131,16 @@ AS
 BEGIN
     SET NOCOUNT ON;
 
-    INSERT INTO Tickets (idUsuario, observacion, tipoSoporte, equipo)
-    VALUES (@idUsuario, @observacion, @tipoSoporte, @equipo);
+    INSERT INTO Tickets (idUsuario, observacion, tipoSoporte, equipo, estado)
+    VALUES (@idUsuario, @observacion, @tipoSoporte, @equipo, 'En espera');
 END
-
 
 
 EXEC InsertarTicket
     @idUsuario = 2,
     @observacion = 'nuevo problema',
     @tipoSoporte = 'Soporte técnico',
-    @equipo = 'Laptop 2'
+    @equipo = 'Laptop 4'
 
 
 

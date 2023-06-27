@@ -187,8 +187,11 @@ Public Class loginRegistro
                 inicioAdmin.Owner = Form1
 
             End If
+        Else
+            LabelIncorrecto.Visible = True
 
         End If
+
 
     End Sub
 
