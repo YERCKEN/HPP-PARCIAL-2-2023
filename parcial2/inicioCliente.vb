@@ -1,6 +1,7 @@
 ﻿Imports System.Drawing.Drawing2D
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement.Status
 Imports System.Drawing
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 
 Public Class inicioCliente
     Private Sub inicioCliente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -11,7 +12,9 @@ Public Class inicioCliente
         LabelNombre.Text = querysBd.Nombre & " " & querysBd.Apellido
         LabelCorreo.Text = querysBd.Correo
         LabelUsuario.Text = querysBd.UsuarioObtenido
-
+        LabelRol.Text = querysBd.Rol
+        'ESTILO DROP BOX
+        ListaTipoSoporte.ForeColor = Color.FromArgb(120, 127, 130)
 
         'CARGA DATA 
 
@@ -79,6 +82,59 @@ Public Class inicioCliente
         BtnFactura.Visible = False
 
     End Sub
+
+    'BTN VOLVVER
+    Private Sub BtnVolver_Click(sender As Object, e As EventArgs) Handles BtnVolver.Click
+        panelIngresoDatos2.Visible = False
+        BtnNuevoT.Visible = True
+        BtnFactura.Visible = True
+
+        TextBoxEquipo.Text = ""
+        TextBoxObservacion.Text = ""
+        ListaTipoSoporte.Text = ""
+    End Sub
+
+
+
+    Private Sub BtnIngresarNuevoTicket_Click(sender As Object, e As EventArgs) Handles BtnIngresarNuevoTicket.Click
+        If TextBoxEquipo.Text = "" Then
+            TextBoxEquipo.BackColor = Color.FromArgb(255, 222, 222)
+            MessageBox.Show("ERROR: Campo Vacío", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            TextBoxEquipo.BackColor = Color.White
+
+        ElseIf ListaTipoSoporte.Text = "" Then
+
+            ListaTipoSoporte.BackColor = Color.FromArgb(255, 222, 222)
+            MessageBox.Show("ERROR: Campo Vacío", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            ListaTipoSoporte.BackColor = Color.White
+
+        ElseIf TextBoxObservacion.Text = "" Then
+            TextBoxObservacion.BackColor = Color.FromArgb(255, 222, 222)
+            MessageBox.Show("ERROR: Campo Vacío", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            TextBoxObservacion.BackColor = Color.White
+        Else
+
+            'realizar insersión
+            If ListaTipoSoporte.Text = "Preventivo" Or ListaTipoSoporte.Text = "Correctivo" Or ListaTipoSoporte.Text = "Predictivo" Then
+
+                querysBd.InsertarTicket(querysBd.UsuarioID, TextBoxObservacion.Text, ListaTipoSoporte.Text, TextBoxEquipo.Text)
+                MessageBox.Show("El ticket ha sido insertado correctamente", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                'CARGA DATA 
+                DataGridView1.DataSource = querysBd.obtenerTicketsUsuario()
+
+            Else
+                ListaTipoSoporte.BackColor = Color.FromArgb(255, 222, 222)
+                MessageBox.Show("ERROR: Tipo de Soporte NO válido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                ListaTipoSoporte.BackColor = Color.White
+            End If
+
+
+        End If
+    End Sub
+
+
+
+
 
 
 

@@ -182,9 +182,20 @@ Public Class loginRegistro
             If querysBd.Rol = "cliente" Then
                 inicioCliente.Show()
                 inicioCliente.Owner = Form1
+
+                'VISIBILIDAD BOTONES INICIO
+                Form1.btnAdministrar.Visible = False
+                Form1.BtnItinerario.Visible = False
+                Form1.BtnReporte.Visible = False
+
             Else
                 inicioAdmin.Show()
                 inicioAdmin.Owner = Form1
+
+                'VISIBILIDAD BOTONES INICIO
+                Form1.btnAdministrar.Visible = True
+                Form1.BtnItinerario.Visible = True
+                Form1.BtnReporte.Visible = True
 
             End If
         Else

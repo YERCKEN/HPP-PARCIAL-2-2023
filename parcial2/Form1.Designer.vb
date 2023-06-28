@@ -24,11 +24,11 @@ Partial Class Form1
     Private Sub InitializeComponent()
         Dim resources As ComponentModel.ComponentResourceManager = New ComponentModel.ComponentResourceManager(GetType(Form1))
         Menu = New MenuStrip()
-        Archivo = New ToolStripMenuItem()
-        archivoP1 = New ToolStripMenuItem()
-        archivoP2 = New ToolStripMenuItem()
-        ArchivoP4 = New ToolStripMenuItem()
-        P3 = New ToolStripMenuItem()
+        btnArchivo = New ToolStripMenuItem()
+        btnInicio = New ToolStripMenuItem()
+        btnAdministrar = New ToolStripMenuItem()
+        BtnItinerario = New ToolStripMenuItem()
+        BtnReporte = New ToolStripMenuItem()
         ToolStripSeparator1 = New ToolStripSeparator()
         SalirToolStripMenuItem = New ToolStripMenuItem()
         toolStripSeparator5 = New ToolStripSeparator()
@@ -39,6 +39,7 @@ Partial Class Form1
         BuscarToolStripMenuItem = New ToolStripMenuItem()
         BtnCerrar = New PictureBox()
         BtnMin = New PictureBox()
+        ReporteToolStripMenuItem = New ToolStripMenuItem()
         Menu.SuspendLayout()
         CType(BtnCerrar, ComponentModel.ISupportInitialize).BeginInit()
         CType(BtnMin, ComponentModel.ISupportInitialize).BeginInit()
@@ -51,7 +52,7 @@ Partial Class Form1
         Menu.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
         Menu.GripMargin = New Padding(2, 60, 60, 2)
         Menu.ImageScalingSize = New Size(20, 20)
-        Menu.Items.AddRange(New ToolStripItem() {Archivo, toolStripSeparator5, ayuda, toolStripSeparator2, version})
+        Menu.Items.AddRange(New ToolStripItem() {btnArchivo, toolStripSeparator5, ayuda, toolStripSeparator2, version})
         Menu.Location = New Point(0, 0)
         Menu.Name = "Menu"
         Menu.Padding = New Padding(0)
@@ -60,54 +61,57 @@ Partial Class Form1
         Menu.TabIndex = 11
         Menu.Text = "MenuStrip1"
         ' 
-        ' Archivo
+        ' btnArchivo
         ' 
-        Archivo.DropDownItems.AddRange(New ToolStripItem() {archivoP1, archivoP2, ArchivoP4, P3, ToolStripSeparator1, SalirToolStripMenuItem})
-        Archivo.Margin = New Padding(20, 0, 0, 0)
-        Archivo.Name = "Archivo"
-        Archivo.Padding = New Padding(5, 20, 5, 0)
-        Archivo.Size = New Size(78, 49)
-        Archivo.Text = "Menú"
+        btnArchivo.DropDownItems.AddRange(New ToolStripItem() {btnInicio, btnAdministrar, BtnItinerario, BtnReporte, ReporteToolStripMenuItem, ToolStripSeparator1, SalirToolStripMenuItem})
+        btnArchivo.Margin = New Padding(20, 0, 0, 0)
+        btnArchivo.Name = "btnArchivo"
+        btnArchivo.Padding = New Padding(5, 20, 5, 0)
+        btnArchivo.Size = New Size(78, 49)
+        btnArchivo.Text = "Menú"
         ' 
-        ' archivoP1
+        ' btnInicio
         ' 
-        archivoP1.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        archivoP1.ImageTransparentColor = Color.Magenta
-        archivoP1.Margin = New Padding(0, 20, 0, 0)
-        archivoP1.Name = "archivoP1"
-        archivoP1.Padding = New Padding(0, 5, 0, 1)
-        archivoP1.Size = New Size(209, 34)
-        archivoP1.Text = "Inicio"
+        btnInicio.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        btnInicio.ImageTransparentColor = Color.Magenta
+        btnInicio.Margin = New Padding(0, 20, 0, 0)
+        btnInicio.Name = "btnInicio"
+        btnInicio.Padding = New Padding(0, 5, 0, 1)
+        btnInicio.Size = New Size(243, 34)
+        btnInicio.Text = "Inicio"
         ' 
-        ' archivoP2
+        ' btnAdministrar
         ' 
-        archivoP2.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        archivoP2.ImageTransparentColor = Color.Magenta
-        archivoP2.Name = "archivoP2"
-        archivoP2.Padding = New Padding(0, 5, 0, 1)
-        archivoP2.Size = New Size(209, 34)
-        archivoP2.Text = "Administrar"
+        btnAdministrar.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        btnAdministrar.ImageTransparentColor = Color.Magenta
+        btnAdministrar.Name = "btnAdministrar"
+        btnAdministrar.Padding = New Padding(0, 5, 0, 1)
+        btnAdministrar.Size = New Size(243, 34)
+        btnAdministrar.Text = "Administrar"
+        btnAdministrar.Visible = False
         ' 
-        ' ArchivoP4
+        ' BtnItinerario
         ' 
-        ArchivoP4.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        ArchivoP4.Name = "ArchivoP4"
-        ArchivoP4.Size = New Size(209, 30)
-        ArchivoP4.Text = "Itinerario"
+        BtnItinerario.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        BtnItinerario.Name = "BtnItinerario"
+        BtnItinerario.Size = New Size(243, 30)
+        BtnItinerario.Text = "Itinerario"
+        BtnItinerario.Visible = False
         ' 
-        ' P3
+        ' BtnReporte
         ' 
-        P3.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        P3.ImageTransparentColor = Color.Magenta
-        P3.Name = "P3"
-        P3.Padding = New Padding(0, 5, 0, 1)
-        P3.Size = New Size(209, 34)
-        P3.Text = "Reporte"
+        BtnReporte.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        BtnReporte.ImageTransparentColor = Color.Magenta
+        BtnReporte.Name = "BtnReporte"
+        BtnReporte.Padding = New Padding(0, 5, 0, 1)
+        BtnReporte.Size = New Size(243, 34)
+        BtnReporte.Text = "Reporte"
+        BtnReporte.Visible = False
         ' 
         ' ToolStripSeparator1
         ' 
         ToolStripSeparator1.Name = "ToolStripSeparator1"
-        ToolStripSeparator1.Size = New Size(206, 6)
+        ToolStripSeparator1.Size = New Size(240, 6)
         ' 
         ' SalirToolStripMenuItem
         ' 
@@ -115,7 +119,7 @@ Partial Class Form1
         SalirToolStripMenuItem.Margin = New Padding(0, 15, 0, 0)
         SalirToolStripMenuItem.Name = "SalirToolStripMenuItem"
         SalirToolStripMenuItem.Padding = New Padding(0, 10, 0, 1)
-        SalirToolStripMenuItem.Size = New Size(209, 39)
+        SalirToolStripMenuItem.Size = New Size(243, 39)
         SalirToolStripMenuItem.Text = "Salir"
         ' 
         ' toolStripSeparator5
@@ -183,6 +187,13 @@ Partial Class Form1
         BtnMin.TabIndex = 15
         BtnMin.TabStop = False
         ' 
+        ' ReporteToolStripMenuItem
+        ' 
+        ReporteToolStripMenuItem.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        ReporteToolStripMenuItem.Name = "ReporteToolStripMenuItem"
+        ReporteToolStripMenuItem.Size = New Size(243, 30)
+        ReporteToolStripMenuItem.Text = "Cancelar Ticket"
+        ' 
         ' Form1
         ' 
         AutoScaleDimensions = New SizeF(9F, 21F)
@@ -205,11 +216,11 @@ Partial Class Form1
     End Sub
 
     Friend WithEvents Menu As MenuStrip
-    Friend WithEvents Archivo As ToolStripMenuItem
-    Friend WithEvents archivoP1 As ToolStripMenuItem
-    Friend WithEvents archivoP2 As ToolStripMenuItem
-    Friend WithEvents ArchivoP4 As ToolStripMenuItem
-    Friend WithEvents P3 As ToolStripMenuItem
+    Friend WithEvents btnArchivo As ToolStripMenuItem
+    Friend WithEvents btnInicio As ToolStripMenuItem
+    Friend WithEvents btnAdministrar As ToolStripMenuItem
+    Friend WithEvents BtnItinerario As ToolStripMenuItem
+    Friend WithEvents BtnReporte As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
     Friend WithEvents SalirToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents toolStripSeparator5 As ToolStripSeparator
@@ -220,4 +231,5 @@ Partial Class Form1
     Friend WithEvents BuscarToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BtnCerrar As PictureBox
     Friend WithEvents BtnMin As PictureBox
+    Friend WithEvents ReporteToolStripMenuItem As ToolStripMenuItem
 End Class

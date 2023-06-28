@@ -122,7 +122,7 @@ Module querysBd
     End Function
 
 
-
+    'obTener tikets de cada usuario
     Public Function obtenerTicketsUsuario() As DataTable
 
         Dim query As String = "EXEC ObtenerTicketsPorUsuario @idUsuario"
@@ -145,5 +145,21 @@ Module querysBd
 
         Return dataTable
     End Function
+
+    'insertar nuevo tiket
+    Public Sub InsertarTicket(idUsuario As Integer, observacion As String, tipoSoporte As String, equipo As String)
+        Using connection As New SqlConnection(variablesGlobales.cadenaConexion)
+            connection.Open()
+            Dim command As New SqlCommand("InsertarTicket", connection)
+            command.CommandType = CommandType.StoredProcedure
+
+            command.Parameters.AddWithValue("@idUsuario", idUsuario)
+            command.Parameters.AddWithValue("@observacion", observacion)
+            command.Parameters.AddWithValue("@tipoSoporte", tipoSoporte)
+            command.Parameters.AddWithValue("@equipo", equipo)
+
+            command.ExecuteNonQuery()
+        End Using
+    End Sub
 
 End Module

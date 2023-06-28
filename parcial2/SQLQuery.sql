@@ -138,9 +138,9 @@ END
 
 EXEC InsertarTicket
     @idUsuario = 2,
-    @observacion = 'nuevo problema',
-    @tipoSoporte = 'Soporte técnico',
-    @equipo = 'Laptop 4'
+    @observacion = 'Sistema',
+    @tipoSoporte = 'Preventivo',
+    @equipo = 'Gygabyte G5'
 
 
 

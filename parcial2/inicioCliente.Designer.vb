@@ -25,6 +25,7 @@ Partial Class inicioCliente
         Dim resources As ComponentModel.ComponentResourceManager = New ComponentModel.ComponentResourceManager(GetType(inicioCliente))
         Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
         btnPerfil = New PictureBox()
         PanelPerfil = New Panel()
         Label5 = New Label()
@@ -38,13 +39,13 @@ Partial Class inicioCliente
         BtnFactura = New Button()
         BtnNuevoT = New Button()
         panelIngresoDatos2 = New Panel()
-        ListaMostrarLibros = New ComboBox()
+        ListaTipoSoporte = New ComboBox()
         BtnVolver = New Button()
-        NewClienteBtn = New Button()
+        BtnIngresarNuevoTicket = New Button()
         TextBoxObservacion = New TextBox()
         Label1 = New Label()
         Label6 = New Label()
-        TextBoxCosto = New TextBox()
+        TextBoxEquipo = New TextBox()
         Label7 = New Label()
         CType(btnPerfil, ComponentModel.ISupportInitialize).BeginInit()
         PanelPerfil.SuspendLayout()
@@ -57,7 +58,7 @@ Partial Class inicioCliente
         ' 
         btnPerfil.Cursor = Cursors.Hand
         btnPerfil.Image = My.Resources.Resources.PERFIl
-        btnPerfil.Location = New Point(1155, 39)
+        btnPerfil.Location = New Point(1155, 18)
         btnPerfil.Name = "btnPerfil"
         btnPerfil.Size = New Size(60, 60)
         btnPerfil.TabIndex = 0
@@ -74,7 +75,7 @@ Partial Class inicioCliente
         PanelPerfil.Controls.Add(LabelCorreo)
         PanelPerfil.Controls.Add(LabelRol)
         PanelPerfil.Controls.Add(LabelNombre)
-        PanelPerfil.Location = New Point(801, 82)
+        PanelPerfil.Location = New Point(801, 41)
         PanelPerfil.Name = "PanelPerfil"
         PanelPerfil.Size = New Size(414, 413)
         PanelPerfil.TabIndex = 1
@@ -181,10 +182,18 @@ Partial Class inicioCliente
         DataGridViewCellStyle2.WrapMode = DataGridViewTriState.False
         DataGridView1.DefaultCellStyle = DataGridViewCellStyle2
         DataGridView1.EnableHeadersVisualStyles = False
-        DataGridView1.Location = New Point(43, 505)
+        DataGridView1.Location = New Point(43, 476)
         DataGridView1.Margin = New Padding(4, 3, 4, 3)
         DataGridView1.Name = "DataGridView1"
         DataGridView1.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
+        DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = SystemColors.Control
+        DataGridViewCellStyle3.Font = New Font("Segoe UI", 9.6F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle3.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        DataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = DataGridViewTriState.True
+        DataGridView1.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
         DataGridView1.RowHeadersVisible = False
         DataGridView1.RowHeadersWidth = 51
         DataGridView1.RowTemplate.Height = 31
@@ -200,11 +209,11 @@ Partial Class inicioCliente
         BtnFactura.FlatStyle = FlatStyle.Flat
         BtnFactura.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
         BtnFactura.ForeColor = Color.White
-        BtnFactura.Location = New Point(131, 308)
+        BtnFactura.Location = New Point(131, 257)
         BtnFactura.Name = "BtnFactura"
         BtnFactura.Size = New Size(458, 51)
         BtnFactura.TabIndex = 58
-        BtnFactura.Text = "Factura.xlsx"
+        BtnFactura.Text = "Imprimir Factura.xlsx"
         BtnFactura.UseVisualStyleBackColor = False
         ' 
         ' BtnNuevoT
@@ -216,39 +225,39 @@ Partial Class inicioCliente
         BtnNuevoT.FlatStyle = FlatStyle.Flat
         BtnNuevoT.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
         BtnNuevoT.ForeColor = Color.White
-        BtnNuevoT.Location = New Point(131, 223)
+        BtnNuevoT.Location = New Point(131, 172)
         BtnNuevoT.Name = "BtnNuevoT"
         BtnNuevoT.Size = New Size(458, 51)
         BtnNuevoT.TabIndex = 57
-        BtnNuevoT.Text = "Nuevo"
+        BtnNuevoT.Text = "Nuevo Ticket"
         BtnNuevoT.UseVisualStyleBackColor = False
         ' 
         ' panelIngresoDatos2
         ' 
-        panelIngresoDatos2.Controls.Add(ListaMostrarLibros)
+        panelIngresoDatos2.Controls.Add(ListaTipoSoporte)
         panelIngresoDatos2.Controls.Add(BtnVolver)
-        panelIngresoDatos2.Controls.Add(NewClienteBtn)
+        panelIngresoDatos2.Controls.Add(BtnIngresarNuevoTicket)
         panelIngresoDatos2.Controls.Add(TextBoxObservacion)
         panelIngresoDatos2.Controls.Add(Label1)
         panelIngresoDatos2.Controls.Add(Label6)
-        panelIngresoDatos2.Controls.Add(TextBoxCosto)
+        panelIngresoDatos2.Controls.Add(TextBoxEquipo)
         panelIngresoDatos2.Controls.Add(Label7)
-        panelIngresoDatos2.Location = New Point(43, 189)
+        panelIngresoDatos2.Location = New Point(78, 79)
         panelIngresoDatos2.Name = "panelIngresoDatos2"
-        panelIngresoDatos2.Size = New Size(681, 270)
+        panelIngresoDatos2.Size = New Size(681, 337)
         panelIngresoDatos2.TabIndex = 59
         panelIngresoDatos2.Visible = False
         ' 
-        ' ListaMostrarLibros
+        ' ListaTipoSoporte
         ' 
-        ListaMostrarLibros.Font = New Font("Montserrat", 10.2F, FontStyle.Bold, GraphicsUnit.Point)
-        ListaMostrarLibros.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        ListaMostrarLibros.FormattingEnabled = True
-        ListaMostrarLibros.Items.AddRange(New Object() {"Libros Prestados", "Libros Devueltos", "Todos"})
-        ListaMostrarLibros.Location = New Point(5, 112)
-        ListaMostrarLibros.Name = "ListaMostrarLibros"
-        ListaMostrarLibros.Size = New Size(275, 32)
-        ListaMostrarLibros.TabIndex = 49
+        ListaTipoSoporte.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        ListaTipoSoporte.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        ListaTipoSoporte.FormattingEnabled = True
+        ListaTipoSoporte.Items.AddRange(New Object() {"Preventivo", "Correctivo", "Predictivo"})
+        ListaTipoSoporte.Location = New Point(5, 151)
+        ListaTipoSoporte.Name = "ListaTipoSoporte"
+        ListaTipoSoporte.Size = New Size(337, 33)
+        ListaTipoSoporte.TabIndex = 49
         ' 
         ' BtnVolver
         ' 
@@ -259,45 +268,45 @@ Partial Class inicioCliente
         BtnVolver.FlatStyle = FlatStyle.Flat
         BtnVolver.Font = New Font("Microsoft Sans Serif", 28.2F, FontStyle.Regular, GraphicsUnit.Point)
         BtnVolver.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        BtnVolver.Location = New Point(415, 176)
+        BtnVolver.Location = New Point(379, 116)
         BtnVolver.Name = "BtnVolver"
         BtnVolver.Size = New Size(87, 68)
         BtnVolver.TabIndex = 48
         BtnVolver.Text = "🔙"
         BtnVolver.UseVisualStyleBackColor = False
         ' 
-        ' NewClienteBtn
+        ' BtnIngresarNuevoTicket
         ' 
-        NewClienteBtn.BackColor = Color.FromArgb(CByte(82), CByte(235), CByte(163))
-        NewClienteBtn.Cursor = Cursors.Hand
-        NewClienteBtn.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        NewClienteBtn.FlatAppearance.BorderSize = 0
-        NewClienteBtn.FlatStyle = FlatStyle.Flat
-        NewClienteBtn.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        NewClienteBtn.ForeColor = Color.White
-        NewClienteBtn.Location = New Point(379, 46)
-        NewClienteBtn.Name = "NewClienteBtn"
-        NewClienteBtn.Size = New Size(185, 51)
-        NewClienteBtn.TabIndex = 47
-        NewClienteBtn.Text = "Ingresar"
-        NewClienteBtn.UseVisualStyleBackColor = False
+        BtnIngresarNuevoTicket.BackColor = Color.FromArgb(CByte(67), CByte(116), CByte(255))
+        BtnIngresarNuevoTicket.Cursor = Cursors.Hand
+        BtnIngresarNuevoTicket.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        BtnIngresarNuevoTicket.FlatAppearance.BorderSize = 0
+        BtnIngresarNuevoTicket.FlatStyle = FlatStyle.Flat
+        BtnIngresarNuevoTicket.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        BtnIngresarNuevoTicket.ForeColor = Color.White
+        BtnIngresarNuevoTicket.Location = New Point(379, 33)
+        BtnIngresarNuevoTicket.Name = "BtnIngresarNuevoTicket"
+        BtnIngresarNuevoTicket.Size = New Size(185, 51)
+        BtnIngresarNuevoTicket.TabIndex = 47
+        BtnIngresarNuevoTicket.Text = "Ingresar"
+        BtnIngresarNuevoTicket.UseVisualStyleBackColor = False
         ' 
         ' TextBoxObservacion
         ' 
-        TextBoxObservacion.Font = New Font("Montserrat", 10.2F, FontStyle.Bold, GraphicsUnit.Point)
+        TextBoxObservacion.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
         TextBoxObservacion.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        TextBoxObservacion.Location = New Point(4, 197)
+        TextBoxObservacion.Location = New Point(4, 263)
         TextBoxObservacion.Multiline = True
         TextBoxObservacion.Name = "TextBoxObservacion"
-        TextBoxObservacion.Size = New Size(276, 68)
+        TextBoxObservacion.Size = New Size(658, 68)
         TextBoxObservacion.TabIndex = 19
         ' 
         ' Label1
         ' 
         Label1.AutoSize = True
         Label1.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        Label1.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        Label1.Location = New Point(4, 164)
+        Label1.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        Label1.Location = New Point(0, 222)
         Label1.Name = "Label1"
         Label1.Size = New Size(145, 27)
         Label1.TabIndex = 20
@@ -307,39 +316,39 @@ Partial Class inicioCliente
         ' 
         Label6.AutoSize = True
         Label6.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        Label6.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        Label6.Location = New Point(5, 79)
+        Label6.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        Label6.Location = New Point(5, 110)
         Label6.Name = "Label6"
-        Label6.Size = New Size(66, 27)
+        Label6.Size = New Size(180, 27)
         Label6.TabIndex = 16
-        Label6.Text = "Libro"
+        Label6.Text = "Tipo de Soporte"
         ' 
-        ' TextBoxCosto
+        ' TextBoxEquipo
         ' 
-        TextBoxCosto.Font = New Font("Microsoft Sans Serif", 14.999999F, FontStyle.Bold, GraphicsUnit.Point)
-        TextBoxCosto.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        TextBoxCosto.Location = New Point(5, 31)
-        TextBoxCosto.Name = "TextBoxCosto"
-        TextBoxCosto.Size = New Size(275, 36)
-        TextBoxCosto.TabIndex = 14
+        TextBoxEquipo.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
+        TextBoxEquipo.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        TextBoxEquipo.Location = New Point(5, 53)
+        TextBoxEquipo.Name = "TextBoxEquipo"
+        TextBoxEquipo.Size = New Size(337, 30)
+        TextBoxEquipo.TabIndex = 14
         ' 
         ' Label7
         ' 
         Label7.AutoSize = True
         Label7.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
-        Label7.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        Label7.Location = New Point(5, 3)
+        Label7.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        Label7.Location = New Point(5, 4)
         Label7.Name = "Label7"
-        Label7.Size = New Size(73, 27)
+        Label7.Size = New Size(86, 27)
         Label7.TabIndex = 18
-        Label7.Text = "Costo"
+        Label7.Text = "Equipo"
         ' 
         ' inicioCliente
         ' 
         AutoScaleDimensions = New SizeF(9F, 21F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.White
-        ClientSize = New Size(1288, 800)
+        ClientSize = New Size(1288, 777)
         Controls.Add(panelIngresoDatos2)
         Controls.Add(BtnFactura)
         Controls.Add(BtnNuevoT)
@@ -374,12 +383,12 @@ Partial Class inicioCliente
     Friend WithEvents BtnNuevoT As Button
     Friend WithEvents BtnFactura As Button
     Friend WithEvents panelIngresoDatos2 As Panel
-    Friend WithEvents ListaMostrarLibros As ComboBox
+    Friend WithEvents ListaTipoSoporte As ComboBox
     Friend WithEvents BtnVolver As Button
-    Friend WithEvents NewClienteBtn As Button
+    Friend WithEvents BtnIngresarNuevoTicket As Button
     Friend WithEvents TextBoxObservacion As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label6 As Label
-    Friend WithEvents TextBoxCosto As TextBox
+    Friend WithEvents TextBoxEquipo As TextBox
     Friend WithEvents Label7 As Label
 End Class
