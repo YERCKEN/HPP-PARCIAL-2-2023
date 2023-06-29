@@ -59,10 +59,22 @@ Public Class Form1
             loginRegistro.Location = New Point(Me.Location.X, Me.Location.Y + 49)
         End If
 
-        'Inicio
+        'Inicio CLIENTE
         If inicioCliente IsNot Nothing Then
             inicioCliente.Location = New Point(Me.Location.X, Me.Location.Y + 49)
         End If
+
+        'Inicio CLIENTE
+        If inicioAdmin IsNot Nothing Then
+            inicioAdmin.Location = New Point(Me.Location.X, Me.Location.Y + 49)
+        End If
+
+        'Inicio CLIENTE
+        If adminitrar IsNot Nothing Then
+            adminitrar.Location = New Point(Me.Location.X, Me.Location.Y + 49)
+        End If
+
+
     End Sub
 
     'MOVIMIENTO-=====================================================================================
@@ -82,6 +94,32 @@ Public Class Form1
     <DllImport("user32.dll", CharSet:=CharSet.Auto)>
     Private Shared Function ReleaseCapture() As Boolean
     End Function
+
+    Private Sub btnAdministrar_Click(sender As Object, e As EventArgs) Handles btnAdministrar.Click
+
+        adminitrar.Show()
+        adminitrar.Owner = Me
+
+        'CERRAR
+        inicioAdmin.Close()
+    End Sub
+
+    Private Sub btnInicio_Click(sender As Object, e As EventArgs) Handles btnInicio.Click
+        If querysBd.Rol = "admin" Then
+            'CERRAR
+            adminitrar.Close()
+
+
+            'ABRIR
+            inicioAdmin.Show()
+            inicioAdmin.Owner = Me
+
+        Else
+
+        End If
+
+    End Sub
+
 
 End Class
 

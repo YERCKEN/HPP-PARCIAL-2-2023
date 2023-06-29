@@ -164,12 +164,12 @@ Partial Class inicioCliente
         DataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.None
         DataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
         DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle1.BackColor = Color.White
+        DataGridViewCellStyle1.BackColor = Color.FromArgb(CByte(67), CByte(116), CByte(255))
         DataGridViewCellStyle1.Font = New Font("Montserrat", 10.2F, FontStyle.Bold, GraphicsUnit.Point)
-        DataGridViewCellStyle1.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        DataGridViewCellStyle1.ForeColor = Color.White
         DataGridViewCellStyle1.Padding = New Padding(5)
-        DataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle1.SelectionBackColor = Color.White
+        DataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(CByte(67), CByte(116), CByte(255))
         DataGridViewCellStyle1.WrapMode = DataGridViewTriState.True
         DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         DataGridView1.ColumnHeadersHeight = 50
@@ -187,7 +187,7 @@ Partial Class inicioCliente
         DataGridView1.Name = "DataGridView1"
         DataGridView1.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
         DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = SystemColors.Control
+        DataGridViewCellStyle3.BackColor = Color.White
         DataGridViewCellStyle3.Font = New Font("Segoe UI", 9.6F, FontStyle.Regular, GraphicsUnit.Point)
         DataGridViewCellStyle3.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
         DataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight

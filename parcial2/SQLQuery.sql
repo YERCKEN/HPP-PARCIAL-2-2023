@@ -29,8 +29,8 @@ CREATE TABLE Tickets (
   equipo VARCHAR(255),
   costoInicial DECIMAL(10, 2),
   costoFinal DECIMAL(10, 2),
-  fechaInicio DATETIME,
-  fechaFinalizacion DATETIME,
+  fechaInicio DATE,
+  fechaFinalizacion DATE,
   observacion VARCHAR(255)
 );
 
@@ -144,7 +144,7 @@ EXEC InsertarTicket
 
 
 
-	-- Crear el procedimiento almacenado
+	-- Crear el procedimiento almacenado OBTENER TIKET POR USUARIO ID =====================================
 CREATE PROCEDURE ObtenerTicketsPorUsuario
   @idUsuario INT
 AS
@@ -168,6 +168,152 @@ END;
 
 
 
+ --PROCEDIMIENTO PARA SELECCIONAR TODOS LOS TIKETS
+CREATE PROCEDURE ObtenerTodosLosTickets
+AS
+BEGIN
+  SELECT
+    T.idTiket,
+	U.id AS idUsuario,
+    U.usuario,
+    T.estado,
+    T.tipoSoporte,
+    T.equipo,
+    T.costoInicial,
+    T.costoFinal,
+    T.fechaInicio,
+    T.fechaFinalizacion,
+    T.observacion
+  FROM Tickets T
+  INNER JOIN Usuarios U ON T.idUsuario = U.id;
+END
+EXEC ObtenerTodosLosTickets;
+
+ --PROCEDIMIENTO PARA SELECCIONAR TODOS LOS TIKETS en espera
+
+CREATE PROCEDURE ObtenerTicketsConUsuariosEnEspera
+AS
+BEGIN
+  SELECT
+    T.idTiket,
+    U.usuario,
+    U.id AS idUsuario,
+    T.estado,
+    T.tipoSoporte,
+    T.equipo,
+    T.costoInicial,
+    T.costoFinal,
+    T.fechaInicio,
+    T.fechaFinalizacion,
+    T.observacion
+  FROM Tickets T
+  INNER JOIN Usuarios U ON T.idUsuario = U.id
+  WHERE T.estado = 'En espera';
+END
+
+EXEC ObtenerTicketsConUsuariosEnEspera;
+
+ --PROCEDIMIENTO PARA SELECCIONAR TODOS LOS TIKETS en PROCESO
+
+CREATE PROCEDURE ObtenerTicketsConUsuariosEnProceso
+AS
+BEGIN
+  SELECT
+    T.idTiket,
+    U.usuario,
+    U.id AS idUsuario,
+    T.estado,
+    T.tipoSoporte,
+    T.equipo,
+    T.costoInicial,
+    T.costoFinal,
+    T.fechaInicio,
+    T.fechaFinalizacion,
+    T.observacion
+  FROM Tickets T
+  INNER JOIN Usuarios U ON T.idUsuario = U.id
+  WHERE T.estado = 'En proceso';
+END
+
+EXEC ObtenerTicketsConUsuariosEnProceso;
+
+
+ --PROCEDIMIENTO PARA SELECCIONAR TODOS LOS TIKETS en PROCESO
+
+CREATE PROCEDURE ObtenerTicketsConUsuariosTerminado
+AS
+BEGIN
+  SELECT
+    T.idTiket,
+    U.usuario,
+    U.id AS idUsuario,
+    T.estado,
+    T.tipoSoporte,
+    T.equipo,
+    T.costoInicial,
+    T.costoFinal,
+    T.fechaInicio,
+    T.fechaFinalizacion,
+    T.observacion
+  FROM Tickets T
+  INNER JOIN Usuarios U ON T.idUsuario = U.id
+  WHERE T.estado = 'Terminado';
+END
+
+EXEC ObtenerTicketsConUsuariosTerminado;
+
+
+
+
+--verificar si existe el ID y hacer ele select
+CREATE PROCEDURE VerificarTicket
+  @idTiket INT
+AS
+BEGIN
+  -- Verificar si el ID de ticket existe
+  IF EXISTS (SELECT 1 FROM Tickets WHERE idTiket = @idTiket)
+  BEGIN
+    -- Realizar la consulta y mostrar los resultados
+    SELECT t.*, u.usuario, u.id AS idUsuario
+    FROM Tickets t
+    INNER JOIN Usuarios u ON t.idUsuario = u.id
+    WHERE t.idTiket = @idTiket;
+  END
+END;
+
+EXEC VerificarTicket @idTiket = 1;
+
+
+
+--actualizar tikets 
+
+CREATE PROCEDURE ActualizarTicket
+  @idTicket INT,
+  @idUsuario INT,
+  @estado VARCHAR(255),
+  @tipoSoporte VARCHAR(255),
+  @equipo VARCHAR(255),
+  @costoInicial DECIMAL(10, 2),
+  @costoFinal DECIMAL(10, 2),
+  @fechaInicio DATE,
+  @fechaFinalizacion DATE,
+  @observacion VARCHAR(255)
+AS
+BEGIN
+  UPDATE Tickets
+  SET idUsuario = @idUsuario,
+      estado = @estado,
+      tipoSoporte = @tipoSoporte,
+      equipo = @equipo,
+      costoInicial = @costoInicial,
+      costoFinal = @costoFinal,
+      fechaInicio = @fechaInicio,
+      fechaFinalizacion = @fechaFinalizacion,
+      observacion = @observacion
+  WHERE idTiket = @idTicket;
+END;
+
+
 
 
 
@@ -186,5 +332,7 @@ SELECT *FROM Usuarios;
 select *from Tickets
 --tikets 
 
-INSERT INTO Tickets (idUsuario, estado, tipoSoporte, equipo, costoInicial, costoFinal)
-VALUES (2, 'Activo', 'Soporte Técnico', 'Equipo XYZ', 100.00, 150.00);
+INSERT INTO Tickets (idUsuario, estado, tipoSoporte, equipo, costoInicial, fechaInicio, fechaFinalizacion, costoFinal )
+VALUES --(5, 'En proceso', 'Correctivo', 'Equipo XYZ', 100.00, '2023-6-28', '2023-7-4'),
+	   (5, 'En proceso', 'Correctivo', 'Equipo XYZ', 20.00, '2023-6-28', '2023-7-20', 30.00),
+	   (5, 'En proceso', 'Correctivo', 'DELL', 20.00, '2023-6-28', '2023-7-10', 45.00);

@@ -5,6 +5,7 @@ Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 
 Public Class inicioCliente
     Private Sub inicioCliente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Form1.Location = New Point(Form1.Location.X, 70)
         Me.Location = New Point(Form1.Location.X, Form1.Location.Y + 49) ' Establecer la nueva ubicación de Form4 en relación con Form1
         PanelPerfil.BackColor = Color.Transparent
         PanelPerfil.Parent = Me
@@ -20,7 +21,12 @@ Public Class inicioCliente
 
         DataGridView1.DataSource = querysBd.obtenerTicketsUsuario()
 
+        DataGridView1.AutoSize = False
+
+        DataGridView1.MaximumSize = New Size(1204, 262)
         DataGridView1.AutoResizeColumns()
+        DataGridView1.ReadOnly = True
+
 
         DataGridView1.Columns("nombreUsuario").Visible = False
         DataGridView1.Columns("idTiket").HeaderText = "ID"
@@ -31,7 +37,13 @@ Public Class inicioCliente
         DataGridView1.Columns("idTiket").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
         DataGridView1.Columns("fechaInicio").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
         DataGridView1.Columns("fechaFinalizacion").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
-        DataGridView1.Columns("observacion").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+
+        ' Configura la columna de observación como de varias líneas
+        'Dim cellStyle As DataGridViewCellStyle = New DataGridViewCellStyle()
+        ' cellStyle.WrapMode = DataGridViewTriState.True
+        'DataGridView1.Columns("observacion").DefaultCellStyle = cellStyle
+
+        'DataGridView1.Columns("observacion").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
 
 
     End Sub
@@ -72,6 +84,8 @@ Public Class inicioCliente
         variablesGlobales.inicioSesion = False
         Me.Close()
         loginRegistro.Show()
+        loginRegistro.Owner = Form1
+        Form1.Location = New Point((Screen.PrimaryScreen.WorkingArea.Width - Form1.Width) \ 2, (Screen.PrimaryScreen.WorkingArea.Height - Form1.Height) \ 2)
 
     End Sub
 
@@ -130,6 +144,10 @@ Public Class inicioCliente
 
 
         End If
+    End Sub
+
+    Private Sub PanelPerfil_Paint(sender As Object, e As PaintEventArgs) Handles PanelPerfil.Paint
+
     End Sub
 
 
