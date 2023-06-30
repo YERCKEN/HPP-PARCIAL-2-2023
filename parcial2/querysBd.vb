@@ -1,7 +1,7 @@
 ﻿Imports System.Data.SqlClient
 Imports System.Diagnostics.Eventing
 
-Module querysBd
+Public Module querysBd
 
     Public UsuarioID As Integer
     Public Nombre As String

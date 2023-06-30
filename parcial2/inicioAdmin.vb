@@ -103,7 +103,7 @@
 
                         'MsgBox("Tikets con fecha de finalizacuón hoy")
 
-                    ElseIf diasRestantes <= 3 And diasRestantes >= 0 Then
+                    ElseIf diasRestantes <= 3 Then
                         ' MsgBox(diasRestantes)
                         e.CellStyle.BackColor = Color.FromArgb(255, 222, 222)
                         e.CellStyle.ForeColor = Color.Red

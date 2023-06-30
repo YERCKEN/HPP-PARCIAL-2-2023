@@ -190,7 +190,7 @@ Public Class loginRegistro
                 Form1.btnAdministrar.Visible = False
                 Form1.BtnItinerario.Visible = False
                 'Form1.BtnReporte.Visible = False
-
+                Form1.Location = New Point(Form1.Location.X, 70)
             Else
                 inicioAdmin.Show()
                 inicioAdmin.Owner = Form1

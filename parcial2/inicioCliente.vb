@@ -3,8 +3,6 @@ Imports System.Windows.Forms.VisualStyles.VisualStyleElement.Status
 Imports System.Drawing
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 
-
-
 Public Class inicioCliente
     Private Sub inicioCliente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Form1.Location = New Point(Form1.Location.X, 70)
@@ -88,7 +86,7 @@ Public Class inicioCliente
         Me.Close()
         loginRegistro.Show()
         loginRegistro.Owner = Form1
-        Form1.Location = New Point((Screen.PrimaryScreen.WorkingArea.Width - Form1.Width) \ 2, (Screen.PrimaryScreen.WorkingArea.Height - Form1.Height) \ 2)
+        'Form1.Location = New Point((Screen.PrimaryScreen.WorkingArea.Width - Form1.Width) \ 2, (Screen.PrimaryScreen.WorkingArea.Height - Form1.Height) \ 2)
         Form1.Size = New Size(Form1.Width, loginRegistro.Height)
     End Sub
 
@@ -158,9 +156,15 @@ Public Class inicioCliente
 
     Private Sub BtnFactura_Click(sender As Object, e As EventArgs) Handles BtnFactura.Click
         Dim impresionForm As New WinFormsApp1.impresion()
-        impresionForm.Show()
+
+
+        impresionForm.UserID = querysBd.UsuarioID
+
+        MsgBox("ID ENVIADO " & querysBd.UsuarioID)
 
         impresionForm.Owner = Me
+
+        impresionForm.Show()
 
     End Sub
 
