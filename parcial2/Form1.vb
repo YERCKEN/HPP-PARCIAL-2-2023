@@ -82,9 +82,15 @@ Public Class Form1
             'Me.Size = New Size(Me.Width, inicioAdmin.Height)
         End If
 
-        'Inicio CLIENTE
+        'Inicio ADMINISTRACION
         If adminitrar IsNot Nothing Then
             adminitrar.Location = New Point(Me.Location.X, Me.Location.Y + 49)
+            'Me.Size = New Size(Me.Width, adminitrar.Height)
+        End If
+
+        'Eliminacion Cliente
+        If eliminaciónCliente IsNot Nothing Then
+            eliminaciónCliente.Location = New Point(Me.Location.X, Me.Location.Y + 49)
             'Me.Size = New Size(Me.Width, adminitrar.Height)
         End If
 
@@ -117,12 +123,14 @@ Public Class Form1
 
         'CERRAR
         inicioAdmin.Close()
+        eliminaciónCliente.Close()
     End Sub
 
     Private Sub btnInicio_Click(sender As Object, e As EventArgs) Handles btnInicio.Click
         If querysBd.Rol = "admin" Then
             'CERRAR
             adminitrar.Close()
+            eliminaciónCliente.Close()
 
 
             'ABRIR
@@ -139,7 +147,17 @@ Public Class Form1
 
     End Sub
 
+    Private Sub BtnItinerario_Click(sender As Object, e As EventArgs) Handles BtnItinerario.Click
+        Me.Size = New Size(Me.Width, eliminaciónCliente.Height)
+        Me.Location = New Point((Screen.PrimaryScreen.WorkingArea.Width - Me.Width) \ 2, (Screen.PrimaryScreen.WorkingArea.Height - Me.Height) \ 2)
 
+        eliminaciónCliente.Show()
+        eliminaciónCliente.Owner = Me
+        inicioAdmin.Close()
+        adminitrar.Close()
+
+
+    End Sub
 End Class
 
 

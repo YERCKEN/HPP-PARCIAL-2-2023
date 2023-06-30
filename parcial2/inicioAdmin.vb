@@ -16,6 +16,7 @@
         'CARGA DE DATOS
         DataGridView1.DataSource = querysBd.ObtenerTodosLosTickets(query)
         ListaMostrar.Text = "Todos"
+
         'EDICION
         DataGridView1.Columns("idTiket").HeaderText = "ID"
         DataGridView1.Columns("idTiket").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells

@@ -209,7 +209,7 @@ Partial Class Form1
         ' 
         AutoScaleDimensions = New SizeF(9F, 21F)
         AutoScaleMode = AutoScaleMode.Font
-        BackColor = Color.Wheat
+        BackColor = Color.White
         ClientSize = New Size(1288, 620)
         Controls.Add(BtnCerrar)
         Controls.Add(BtnMin)

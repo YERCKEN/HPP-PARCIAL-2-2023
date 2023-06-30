@@ -384,7 +384,9 @@ Public Class adminitrar
                         'ELIMICACIÓN
                     Else
                         SystemSounds.Exclamation.Play()
+                        LabelMensaje.Text = "¿ Seguro quieres eliminar el ticket #" & TextBoxId.Text & " ?"
                         PanelConfirmación.Visible = True
+
                         PanelSelecion.Visible = False
                     End If
 
