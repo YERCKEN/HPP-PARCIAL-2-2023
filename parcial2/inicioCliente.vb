@@ -157,7 +157,7 @@ Public Class inicioCliente
     End Sub
 
     Private Sub BtnFactura_Click(sender As Object, e As EventArgs) Handles BtnFactura.Click
-
+        factura.Show()
     End Sub
 
 
