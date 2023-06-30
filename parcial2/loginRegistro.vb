@@ -189,7 +189,7 @@ Public Class loginRegistro
                 'VISIBILIDAD BOTONES INICIO
                 Form1.btnAdministrar.Visible = False
                 Form1.BtnItinerario.Visible = False
-                Form1.BtnReporte.Visible = False
+                'Form1.BtnReporte.Visible = False
 
             Else
                 inicioAdmin.Show()
@@ -198,7 +198,7 @@ Public Class loginRegistro
                 'VISIBILIDAD BOTONES INICIO
                 Form1.btnAdministrar.Visible = True
                 Form1.BtnItinerario.Visible = True
-                Form1.BtnReporte.Visible = True
+                'Form1.BtnReporte.Visible = True
 
             End If
         Else

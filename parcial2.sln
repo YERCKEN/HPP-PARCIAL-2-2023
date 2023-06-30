@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "parcial2", "parcial2\parcial2.vbproj", "{2F2C0F93-20DB-4A4E-B061-14DBEAF2CAF2}"
+Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "parcial2", "parcial2\parcial2.vbproj", "{2F2C0F93-20DB-4A4E-B061-14DBEAF2CAF2}"
+EndProject
+Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "WinFormsApp1", "..\impresion\WinFormsApp1\WinFormsApp1\WinFormsApp1.vbproj", "{633F3DBB-E721-4093-A819-7486CF770DEE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{2F2C0F93-20DB-4A4E-B061-14DBEAF2CAF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F2C0F93-20DB-4A4E-B061-14DBEAF2CAF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2F2C0F93-20DB-4A4E-B061-14DBEAF2CAF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{633F3DBB-E721-4093-A819-7486CF770DEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{633F3DBB-E721-4093-A819-7486CF770DEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{633F3DBB-E721-4093-A819-7486CF770DEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{633F3DBB-E721-4093-A819-7486CF770DEE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

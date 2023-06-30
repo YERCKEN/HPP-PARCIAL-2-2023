@@ -157,19 +157,12 @@ Public Class inicioCliente
     End Sub
 
     Private Sub BtnFactura_Click(sender As Object, e As EventArgs) Handles BtnFactura.Click
-        factura.Show()
+        Dim impresionForm As New WinFormsApp1.impresion()
+        impresionForm.Show()
+
+        impresionForm.Owner = Me
+
     End Sub
 
 
-
-
-
-
-
-
-    'Private Sub BtnVolver_Click(sender As Object, e As EventArgs) Handles BtnVolver.Click
-    '    panelNuevo2.Visible = False
-    '    BtnNuevoT.Visible = True
-    '    BtnFactura.Visible = True
-    'End Sub
 End Class
