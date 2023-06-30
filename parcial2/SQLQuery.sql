@@ -20,6 +20,9 @@ CREATE TABLE Usuarios (
   rolId INT FOREIGN KEY REFERENCES Roles(id)
 );
 
+select *from usuarios;
+
+
 -- Crear la tabla "Tickets"
 CREATE TABLE Tickets (
   idTiket INT IDENTITY(1,1) PRIMARY KEY,
@@ -33,7 +36,6 @@ CREATE TABLE Tickets (
   fechaFinalizacion DATE,
   observacion VARCHAR(255)
 );
-
 
 --PROCEDIMIENTO ALMACENADO PARA LOGIN
 
@@ -329,7 +331,7 @@ SELECT *FROM Usuarios;
 
 
 
-select *from Tickets
+select *from Tickets;
 --tikets 
 
 INSERT INTO Tickets (idUsuario, estado, tipoSoporte, equipo, costoInicial, fechaInicio, fechaFinalizacion, costoFinal )

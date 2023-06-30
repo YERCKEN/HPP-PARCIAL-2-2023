@@ -3,6 +3,8 @@ Imports System.Windows.Forms.VisualStyles.VisualStyleElement.Status
 Imports System.Drawing
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 
+
+
 Public Class inicioCliente
     Private Sub inicioCliente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Form1.Location = New Point(Form1.Location.X, 70)
@@ -153,6 +155,11 @@ Public Class inicioCliente
     Private Sub PanelPerfil_Paint(sender As Object, e As PaintEventArgs) Handles PanelPerfil.Paint
 
     End Sub
+
+    Private Sub BtnFactura_Click(sender As Object, e As EventArgs) Handles BtnFactura.Click
+
+    End Sub
+
 
 
 
