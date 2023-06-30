@@ -1,4 +1,6 @@
-﻿Imports System.Windows.Forms.VisualStyles.VisualStyleElement
+﻿Imports System.Data.SqlClient
+Imports System.Media
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 
 Public Class adminitrar
     Dim query As String = "ObtenerTodosLosTickets"
@@ -9,6 +11,7 @@ Public Class adminitrar
     Private Sub adminitrar_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Form1.Location = New Point(Form1.Location.X, 30)
         Me.Location = New Point(Form1.Location.X, Form1.Location.Y + 49)
+        Form1.Size = New Size(Form1.Width, Me.Height)
 
         'iniciación del la fecha
         DateTimePicker1.Format = DateTimePickerFormat.Custom
@@ -38,6 +41,23 @@ Public Class adminitrar
     End Sub
 
 
+    Private Sub RealizarTransicion(ByVal formulario As Form)
+        formulario.Opacity = 0 ' Establecer la opacidad inicial en 0
+
+        Dim fadeIn As New Timer()
+        fadeIn.Interval = 10 ' Intervalo de tiempo para la animación
+        fadeIn.Start()
+
+        AddHandler fadeIn.Tick,
+        Sub(s, args)
+            If formulario.Opacity < 1 Then
+                formulario.Opacity += 0.05 ' Aumentar la opacidad gradualmente
+            Else
+                fadeIn.Stop()
+            End If
+        End Sub
+    End Sub
+
 
     Private Sub TextBoxId_TextChanged(sender As Object, e As EventArgs) Handles TextBoxId.TextChanged
         ' Obtiene el número ingresado en el TextBox
@@ -59,9 +79,12 @@ Public Class adminitrar
         'panelIngresoDatos2.Enabled = False
 
         LabelActividad.Text = "Aceptar Ticket"
-        LabelActividad.BackColor = Color.FromArgb(67, 116, 255)
-        LabelActividad.Visible = True
+        LabelActividad.BackColor = Color.FromArgb(0, 171, 118)
+        DataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(0, 171, 118)
+        PictureBox1.Image = Image.FromFile("C:\Users\edkac\OneDrive\Documentos\MEGAsync\U 2023\HPP\5. PARCIALES\PARCIAL #2\parcial2\parcial2\IMG\ACEPTAR.png")
 
+        LabelActividad.Visible = True
+        RealizarTransicion(Me)
 
     End Sub
 
@@ -73,7 +96,13 @@ Public Class adminitrar
         'panelIngresoDatos2.Enabled = False
         LabelActividad.Text = "Actualizar Ticket"
         LabelActividad.BackColor = Color.FromArgb(67, 116, 255)
+
+        DataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(67, 116, 255)
+
+        PictureBox1.Image = Image.FromFile("C:\Users\edkac\OneDrive\Documentos\MEGAsync\U 2023\HPP\5. PARCIALES\PARCIAL #2\parcial2\parcial2\IMG\actualizar.png")
+
         LabelActividad.Visible = True
+        RealizarTransicion(Me)
     End Sub
 
 
@@ -84,7 +113,11 @@ Public Class adminitrar
 
         LabelActividad.Text = "Eliminar Ticket"
         LabelActividad.BackColor = Color.FromArgb(250, 80, 80)
+        DataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(250, 80, 80)
+
+        PictureBox1.Image = Image.FromFile("C:\Users\edkac\OneDrive\Documentos\MEGAsync\U 2023\HPP\5. PARCIALES\PARCIAL #2\parcial2\parcial2\IMG\eliminar 3.png")
         LabelActividad.Visible = True
+        RealizarTransicion(Me)
     End Sub
 
 
@@ -133,7 +166,7 @@ Public Class adminitrar
 
                     End If
 
-
+                    RealizarTransicion(Me)
 
                 Else
                     ListaEstado.BackColor = Color.FromArgb(255, 222, 222)
@@ -150,7 +183,7 @@ Public Class adminitrar
 
         End If
 
-
+        PictureBox1.Visible = False
         panelIngresoDatos2.Visible = False
         mostrarSelecion()
     End Sub
@@ -159,10 +192,12 @@ Public Class adminitrar
     Sub mostrarSelecion()
         PanelBotones.Visible = False
         PanelSelecion.Visible = True
+        RealizarTransicion(Me)
     End Sub
     Sub mostrarBotones()
         PanelBotones.Visible = True
         PanelSelecion.Visible = False
+        RealizarTransicion(Me)
     End Sub
 
     Private Sub BtnSalirSeleccion_Click(sender As Object, e As EventArgs) Handles BtnSalirSeleccion.Click
@@ -170,9 +205,18 @@ Public Class adminitrar
         LabelActividad.Visible = False
         If LabelActividad.Text = "Actualizar Ticket" Or LabelActividad.Text = "Aceptar Ticket" Then
             panelIngresoDatos2.Visible = False
+            PictureBox1.Visible = False
         End If
         query = "ObtenerTodosLosTickets"
         DataGridView1.DataSource = querysBd.ObtenerTodosLosTickets(query)
+
+        PictureBox1.Visible = True
+        PictureBox1.Image = Image.FromFile("C:\Users\edkac\OneDrive\Documentos\MEGAsync\U 2023\HPP\5. PARCIALES\PARCIAL #2\parcial2\parcial2\IMG\ADMINISTRACION.png")
+
+
+
+        DataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(67, 116, 255)
+        RealizarTransicion(Me)
     End Sub
 
 
@@ -270,87 +314,104 @@ Public Class adminitrar
 
     Private Sub BtnSeleccionar_Click(sender As Object, e As EventArgs) Handles BtnSeleccionar.Click
 
+        'SI NO ESTÁ VACÍO
+        If TextBoxId.Text <> "" Then
 
-        'CONTROL DETERMINAR SI EL ID EXISTE Y HACER EL UPDATE
-        Dim idBuscado As Integer
-        If Integer.TryParse(Convert.ToInt32(TextBoxId.Text), idBuscado) Then
-            Dim existeId As Boolean = False
+            'CONTROL DETERMINAR SI EL ID EXISTE Y HACER EL UPDATE
+            Dim idBuscado As Integer
+            If Integer.TryParse(Convert.ToInt32(TextBoxId.Text), idBuscado) Then
+                Dim existeId As Boolean = False
 
-            For Each fila As DataGridViewRow In DataGridView1.Rows
-                Dim valorCelda As Integer
-                If fila.Cells("idTiket").Value IsNot Nothing AndAlso Integer.TryParse(fila.Cells("idTiket").Value.ToString(), valorCelda) Then
-                    If valorCelda = idBuscado Then
-                        existeId = True
-                        Exit For
+                For Each fila As DataGridViewRow In DataGridView1.Rows
+                    Dim valorCelda As Integer
+                    If fila.Cells("idTiket").Value IsNot Nothing AndAlso Integer.TryParse(fila.Cells("idTiket").Value.ToString(), valorCelda) Then
+                        If valorCelda = idBuscado Then
+                            existeId = True
+                            Exit For
+                        End If
                     End If
-                End If
-            Next
+                Next
 
-            'SI EL ID EXISTE
-            If existeId Then
+                'SI EL ID EXISTE
+                If existeId Then
 
-                If LabelActividad.Text = "Aceptar Ticket" Then
+                    PictureBox1.Visible = False
 
-                    If querysBd.selectTicketEnEspera(Convert.ToInt32(TextBoxId.Text)) = 1 Then
+                    If LabelActividad.Text = "Aceptar Ticket" Then
 
-                        If LabelActividad.Text <> "Eliminar Ticket" Then
-                            panelIngresoDatos2.Visible = True
-                            PanelSelecion.Visible = False
+                        If querysBd.selectTicketEnEspera(Convert.ToInt32(TextBoxId.Text)) = 1 Then
+
+                            If LabelActividad.Text <> "Eliminar Ticket" Then
+                                panelIngresoDatos2.Visible = True
+                                PanelSelecion.Visible = False
+                            End If
+
+                            TextBoxEquipo.Text = querysBd.equipo
+                            ListaEstado.Text = querysBd.estado
+                            ListaTipoSoporte.Text = querysBd.tipoSoporte
+                            LabelUsuario.Text = querysBd.usuario
+                            LabelId.Text = querysBd.idUsuario
+                            TextBoxObservacion.Text = querysBd.Observacion
+
+
                         End If
 
-                        TextBoxEquipo.Text = querysBd.equipo
-                        ListaEstado.Text = querysBd.estado
-                        ListaTipoSoporte.Text = querysBd.tipoSoporte
-                        LabelUsuario.Text = querysBd.usuario
-                        LabelId.Text = querysBd.idUsuario
-                        TextBoxObservacion.Text = querysBd.Observacion
+                    ElseIf LabelActividad.Text = "Actualizar Ticket" Then
+
+                        If querysBd.selectTickets(Convert.ToInt32(TextBoxId.Text)) = 1 Then
+
+                            If LabelActividad.Text <> "Eliminar Ticket" Then
+                                panelIngresoDatos2.Visible = True
+                                PanelSelecion.Visible = False
+                            End If
+
+                            TextBoxEquipo.Text = querysBd.equipo
+                            ListaEstado.Text = querysBd.estado
+                            ListaTipoSoporte.Text = querysBd.tipoSoporte
+                            LabelUsuario.Text = querysBd.usuario
+                            LabelId.Text = querysBd.idUsuario
+                            TextBoxObservacion.Text = querysBd.Observacion
+
+                            TextBoxCostoFinal.Text = querysBd.costoFinal
+                            TextBoxCostoInicial.Text = querysBd.costoInicio
+
+                            DateTimePicker1.Text = querysBd.fechaFinalizacion
 
 
-                    End If
 
-                ElseIf LabelActividad.Text = "Actualizar Ticket" Then
-
-                    If querysBd.selectTickets(Convert.ToInt32(TextBoxId.Text)) = 1 Then
-
-                        If LabelActividad.Text <> "Eliminar Ticket" Then
-                            panelIngresoDatos2.Visible = True
-                            PanelSelecion.Visible = False
                         End If
 
-                        TextBoxEquipo.Text = querysBd.equipo
-                        ListaEstado.Text = querysBd.estado
-                        ListaTipoSoporte.Text = querysBd.tipoSoporte
-                        LabelUsuario.Text = querysBd.usuario
-                        LabelId.Text = querysBd.idUsuario
-                        TextBoxObservacion.Text = querysBd.Observacion
-
-                        TextBoxCostoFinal.Text = querysBd.costoFinal
-                        TextBoxCostoInicial.Text = querysBd.costoInicio
-
-                        DateTimePicker1.Text = querysBd.fechaFinalizacion
-
-
-
+                        'ELIMICACIÓN
+                    Else
+                        SystemSounds.Exclamation.Play()
+                        PanelConfirmación.Visible = True
+                        PanelSelecion.Visible = False
                     End If
 
+                    RealizarTransicion(Me)
+                Else
+                    MessageBox.Show("El ID No Se Encuentra Entre Las Tuplas Mostradas", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End If
-
-
             Else
-                MessageBox.Show("El ID No Se Encuentra Entre Las Tuplas Mostradas", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBox.Show("Por favor, ingresa un valor entero válido.")
             End If
+
         Else
-            MessageBox.Show("Por favor, ingresa un valor entero válido.")
+
+
+            TextBoxId.BackColor = Color.FromArgb(255, 222, 222)
+            MessageBox.Show("ERROR: Ingrese un Valor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            TextBoxId.BackColor = Color.White
+
         End If
-
-
 
     End Sub
 
     Private Sub BtnVolver_Click(sender As Object, e As EventArgs) Handles BtnVolver.Click
         panelIngresoDatos2.Visible = False
         PanelSelecion.Visible = Visible
-
+        PictureBox1.Visible = True
+        RealizarTransicion(Me)
     End Sub
 
 
@@ -369,6 +430,7 @@ Public Class adminitrar
 
                     ' Verificar si la fecha de finalización está próxima
                     If diasRestantes <= 3 And diasRestantes >= 0 Then
+
                         ' MsgBox(diasRestantes)
                         e.CellStyle.BackColor = Color.FromArgb(255, 222, 222)
                         e.CellStyle.ForeColor = Color.Red
@@ -394,5 +456,74 @@ Public Class adminitrar
                 End If
             End If
         End If
+    End Sub
+
+    Private Sub BtnCancelar_Click(sender As Object, e As EventArgs) Handles BtnCancelar.Click
+        PanelSelecion.Visible = True
+        PictureBox1.Visible = True
+        PanelConfirmación.Visible = False
+        RealizarTransicion(Me)
+    End Sub
+
+
+    Private Sub TextBoxId_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBoxId.KeyPress
+        If Not Char.IsDigit(e.KeyChar) AndAlso Not Char.IsControl(e.KeyChar) Then
+
+            TextBoxId.BackColor = Color.FromArgb(255, 222, 222)
+            e.Handled = True
+            MessageBox.Show("ERROR: Caracter ( " & e.KeyChar & " ) No soportado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
+        Else
+
+            TextBoxId.BackColor = Color.White
+
+        End If
+    End Sub
+
+
+    'QUERY ELIMINAR REGISTRO---------------------------------------------------------------------------------------
+
+    Private Function EliminarTicket(idTicket As Integer) As Boolean
+        Dim query As String = "DELETE FROM Tickets WHERE idTiket = @idTicket"
+
+        Using connection As New SqlConnection(variablesGlobales.cadenaConexion)
+            Using command As New SqlCommand(query, connection)
+                command.Parameters.AddWithValue("@idTicket", idTicket)
+
+                Try
+                    connection.Open()
+                    Dim rowsAffected As Integer = command.ExecuteNonQuery()
+
+                    If rowsAffected > 0 Then
+                        Return True
+                    Else
+                        Return False
+                    End If
+                Catch ex As Exception
+                    MessageBox.Show("Error al eliminar el registro: " & ex.Message)
+                    Return False
+                End Try
+            End Using
+        End Using
+    End Function
+
+    Private Sub BtnAceptarEliminacion_Click(sender As Object, e As EventArgs) Handles BtnAceptarEliminacion.Click
+
+        If EliminarTicket(TextBoxId.Text) Then
+
+            MessageBox.Show("El registro se eliminó correctamente.", "Eliminación", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+        Else
+
+            MessageBox.Show("No se encontró ningún registro con el ID especificado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
+        End If
+
+        PanelSelecion.Visible = True
+        PictureBox1.Visible = True
+        PanelConfirmación.Visible = False
+        query = "ObtenerTodosLosTickets"
+        DataGridView1.DataSource = querysBd.ObtenerTodosLosTickets(query)
+        RealizarTransicion(Me)
     End Sub
 End Class

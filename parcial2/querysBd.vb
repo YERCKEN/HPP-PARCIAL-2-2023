@@ -25,11 +25,6 @@ Module querysBd
 
 
 
-
-
-
-
-
     'FUNCIÓN LOGIN==============================================================================================================
     Public Function Login(usuario As String, contraseña As String) As Integer
         Dim resultado As Integer = 0
@@ -326,7 +321,7 @@ Module querysBd
                     fechaFinalizacion = reader.GetDateTime(reader.GetOrdinal("fechaFinalizacion"))
 
 
-                    MsgBox("FECHA FINALIZACIÓN : " & fechaFinalizacion)
+                    'MsgBox("FECHA FINALIZACIÓN : " & fechaFinalizacion)
 
                 End While
             Else

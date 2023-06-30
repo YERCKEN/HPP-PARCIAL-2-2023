@@ -7,6 +7,7 @@ Public Class inicioCliente
     Private Sub inicioCliente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Form1.Location = New Point(Form1.Location.X, 70)
         Me.Location = New Point(Form1.Location.X, Form1.Location.Y + 49) ' Establecer la nueva ubicación de Form4 en relación con Form1
+        Form1.Size = New Size(Form1.Width, Me.Height)
         PanelPerfil.BackColor = Color.Transparent
         PanelPerfil.Parent = Me
         'DATOS delusuario
@@ -86,7 +87,7 @@ Public Class inicioCliente
         loginRegistro.Show()
         loginRegistro.Owner = Form1
         Form1.Location = New Point((Screen.PrimaryScreen.WorkingArea.Width - Form1.Width) \ 2, (Screen.PrimaryScreen.WorkingArea.Height - Form1.Height) \ 2)
-
+        Form1.Size = New Size(Form1.Width, loginRegistro.Height)
     End Sub
 
     Private Sub BtnNuevoT_Click(sender As Object, e As EventArgs) Handles BtnNuevoT.Click
@@ -106,6 +107,8 @@ Public Class inicioCliente
         TextBoxEquipo.Text = ""
         TextBoxObservacion.Text = ""
         ListaTipoSoporte.Text = ""
+        RealizarTransicion()
+
     End Sub
 
 
@@ -135,7 +138,7 @@ Public Class inicioCliente
                 MessageBox.Show("El ticket ha sido insertado correctamente", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 'CARGA DATA 
                 DataGridView1.DataSource = querysBd.obtenerTicketsUsuario()
-
+                RealizarTransicion()
             Else
                 ListaTipoSoporte.BackColor = Color.FromArgb(255, 222, 222)
                 MessageBox.Show("ERROR: Tipo de Soporte NO válido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -144,6 +147,7 @@ Public Class inicioCliente
 
 
         End If
+
     End Sub
 
     Private Sub PanelPerfil_Paint(sender As Object, e As PaintEventArgs) Handles PanelPerfil.Paint

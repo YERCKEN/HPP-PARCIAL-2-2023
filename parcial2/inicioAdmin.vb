@@ -5,6 +5,7 @@
     Private Sub inicioAdmin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Form1.Location = New Point(Form1.Location.X, 30)
         Me.Location = New Point(Form1.Location.X, Form1.Location.Y + 49) ' Establecer la nueva ubicación de Form4 en relación con Form1
+        Form1.Size = New Size(Form1.Width, Me.Height)
 
         'DATOS delusuario
         LabelNombre.Text = querysBd.Nombre & " " & querysBd.Apellido
@@ -35,15 +36,19 @@
 
     Private Sub btnPerfil_Click(sender As Object, e As EventArgs) Handles btnPerfil.Click
         PanelPerfil.Visible = Not PanelPerfil.Visible
+
+        PictureBox1.Visible = Not PictureBox1.Visible
     End Sub
 
     Private Sub btnCerrarSesion_Click(sender As Object, e As EventArgs) Handles btnCerrarSesion.Click
         variablesGlobales.inicioSesion = False
         Me.Close()
+        adminitrar.Close()
         loginRegistro.Show()
         loginRegistro.Owner = Form1
 
         Form1.Location = New Point((Screen.PrimaryScreen.WorkingArea.Width - Form1.Width) \ 2, (Screen.PrimaryScreen.WorkingArea.Height - Form1.Height) \ 2)
+        Form1.Size = New Size(Form1.Width, loginRegistro.Height)
 
     End Sub
 
@@ -72,7 +77,7 @@
             DataGridView1.DataSource = querysBd.ObtenerTodosLosTickets(query)
 
         End If
-
+        RealizarTransicion()
     End Sub
 
     Private Sub DataGridView1_CellFormatting(sender As Object, e As DataGridViewCellFormattingEventArgs) Handles DataGridView1.CellFormatting
@@ -89,7 +94,15 @@
 
 
                     ' Verificar si la fecha de finalización está próxima
-                    If diasRestantes <= 3 And diasRestantes >= 0 Then
+                    ' Verificar si la fecha de finalización está próxima
+                    If diasRestantes = 0 Then
+                        ' MsgBox(diasRestantes)
+                        e.CellStyle.BackColor = Color.FromArgb(255, 222, 222)
+                        e.CellStyle.ForeColor = Color.Red
+
+                        'MsgBox("Tikets con fecha de finalizacuón hoy")
+
+                    ElseIf diasRestantes <= 3 And diasRestantes >= 0 Then
                         ' MsgBox(diasRestantes)
                         e.CellStyle.BackColor = Color.FromArgb(255, 222, 222)
                         e.CellStyle.ForeColor = Color.Red
@@ -115,6 +128,26 @@
                 End If
             End If
         End If
+    End Sub
+
+
+
+    Private Sub RealizarTransicion()
+        ' Animación de desvanecimiento
+        Opacity = 0 ' Establecer la opacidad inicial en 0
+
+        Dim fadeIn As New Timer()
+        fadeIn.Interval = 10 ' Intervalo de tiempo para la animación
+        fadeIn.Start()
+
+        AddHandler fadeIn.Tick,
+            Sub(s, args)
+                If Opacity < 1 Then
+                    Opacity += 0.05 ' Aumentar la opacidad gradualmente
+                Else
+                    fadeIn.Stop()
+                End If
+            End Sub
     End Sub
 
 End Class

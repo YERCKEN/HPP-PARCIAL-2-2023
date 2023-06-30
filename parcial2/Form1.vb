@@ -1,4 +1,6 @@
-﻿Imports System.Runtime.InteropServices
+﻿Imports System.Drawing.Drawing2D
+Imports System.Runtime.InteropServices
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement.Status
 
 Public Class Form1
 
@@ -9,6 +11,9 @@ Public Class Form1
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+
+
+
         'incióSesion?
         If variablesGlobales.inicioSesion = False Then
 
@@ -18,7 +23,12 @@ Public Class Form1
             loginRegistro.Close()
         End If
 
+
+
+
+
     End Sub
+
 
 
     'BOTON CERRAR---------------------
@@ -57,21 +67,25 @@ Public Class Form1
         'loginRegistro
         If loginRegistro IsNot Nothing Then
             loginRegistro.Location = New Point(Me.Location.X, Me.Location.Y + 49)
+            'Me.Size = New Size(Me.Width, loginRegistro.Height)
         End If
 
         'Inicio CLIENTE
         If inicioCliente IsNot Nothing Then
             inicioCliente.Location = New Point(Me.Location.X, Me.Location.Y + 49)
+            'Me.Size = New Size(Me.Width, inicioCliente.Height)
         End If
 
         'Inicio CLIENTE
         If inicioAdmin IsNot Nothing Then
             inicioAdmin.Location = New Point(Me.Location.X, Me.Location.Y + 49)
+            'Me.Size = New Size(Me.Width, inicioAdmin.Height)
         End If
 
         'Inicio CLIENTE
         If adminitrar IsNot Nothing Then
             adminitrar.Location = New Point(Me.Location.X, Me.Location.Y + 49)
+            'Me.Size = New Size(Me.Width, adminitrar.Height)
         End If
 
 
@@ -83,6 +97,7 @@ Public Class Form1
             ReleaseCapture()
             SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0)
         End If
+
     End Sub
 
     Public Const WM_NCLBUTTONDOWN As Integer = &HA1
@@ -120,8 +135,14 @@ Public Class Form1
 
     End Sub
 
+    Private Sub btnArchivo_Paint(sender As Object, e As PaintEventArgs) Handles btnArchivo.Paint
+
+    End Sub
+
 
 End Class
+
+
 
 
 

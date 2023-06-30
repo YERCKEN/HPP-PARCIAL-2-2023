@@ -47,7 +47,7 @@ Partial Class Form1
         ' 
         ' Menu
         ' 
-        Menu.BackColor = Color.Transparent
+        Menu.BackColor = Color.White
         Menu.Font = New Font("Montserrat", 10.8F, FontStyle.Bold, GraphicsUnit.Point)
         Menu.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
         Menu.GripMargin = New Padding(2, 60, 60, 2)
@@ -57,6 +57,7 @@ Partial Class Form1
         Menu.Name = "Menu"
         Menu.Padding = New Padding(0)
         Menu.RenderMode = ToolStripRenderMode.Professional
+        Menu.RightToLeft = RightToLeft.No
         Menu.Size = New Size(1288, 49)
         Menu.TabIndex = 11
         Menu.Text = "MenuStrip1"
@@ -65,6 +66,7 @@ Partial Class Form1
         ' 
         btnArchivo.DropDownItems.AddRange(New ToolStripItem() {btnInicio, btnAdministrar, BtnItinerario, BtnReporte, ReporteToolStripMenuItem, ToolStripSeparator1, SalirToolStripMenuItem})
         btnArchivo.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        btnArchivo.ImageTransparentColor = Color.FromArgb(CByte(192), CByte(0), CByte(0))
         btnArchivo.Margin = New Padding(20, 0, 0, 0)
         btnArchivo.Name = "btnArchivo"
         btnArchivo.Padding = New Padding(5, 20, 5, 0)
@@ -160,8 +162,12 @@ Partial Class Form1
         ' 
         ' version
         ' 
+        version.BackgroundImageLayout = ImageLayout.Center
+        version.Checked = True
+        version.CheckState = CheckState.Checked
         version.DropDownItems.AddRange(New ToolStripItem() {BuscarToolStripMenuItem})
         version.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        version.ImageTransparentColor = Color.Red
         version.Name = "version"
         version.Padding = New Padding(5, 20, 5, 0)
         version.Size = New Size(96, 49)
@@ -177,6 +183,7 @@ Partial Class Form1
         ' 
         ' BtnCerrar
         ' 
+        BtnCerrar.BackColor = Color.White
         BtnCerrar.BackgroundImage = CType(resources.GetObject("BtnCerrar.BackgroundImage"), Image)
         BtnCerrar.Cursor = Cursors.Hand
         BtnCerrar.Location = New Point(1235, 7)
@@ -188,6 +195,7 @@ Partial Class Form1
         ' 
         ' BtnMin
         ' 
+        BtnMin.BackColor = Color.Transparent
         BtnMin.Cursor = Cursors.Hand
         BtnMin.Image = CType(resources.GetObject("BtnMin.Image"), Image)
         BtnMin.Location = New Point(1199, 7)
@@ -201,7 +209,7 @@ Partial Class Form1
         ' 
         AutoScaleDimensions = New SizeF(9F, 21F)
         AutoScaleMode = AutoScaleMode.Font
-        BackColor = Color.White
+        BackColor = Color.Wheat
         ClientSize = New Size(1288, 620)
         Controls.Add(BtnCerrar)
         Controls.Add(BtnMin)

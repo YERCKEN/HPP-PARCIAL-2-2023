@@ -36,13 +36,14 @@ Partial Class inicioAdmin
         LabelRol = New Label()
         LabelNombre = New Label()
         DataGridView1 = New DataGridView()
-        Label1 = New Label()
         ListaMostrar = New ComboBox()
         Label2 = New Label()
+        PictureBox1 = New PictureBox()
         CType(btnPerfil, ComponentModel.ISupportInitialize).BeginInit()
         PanelPerfil.SuspendLayout()
         CType(btnCerrarSesion, ComponentModel.ISupportInitialize).BeginInit()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
         ' btnPerfil
@@ -191,17 +192,6 @@ Partial Class inicioAdmin
         DataGridView1.Size = New Size(1204, 318)
         DataGridView1.TabIndex = 4
         ' 
-        ' Label1
-        ' 
-        Label1.AutoSize = True
-        Label1.Font = New Font("Montserrat", 14.999999F, FontStyle.Bold, GraphicsUnit.Point)
-        Label1.ForeColor = Color.FromArgb(CByte(148), CByte(153), CByte(156))
-        Label1.Location = New Point(56, 67)
-        Label1.Name = "Label1"
-        Label1.Size = New Size(167, 35)
-        Label1.TabIndex = 62
-        Label1.Text = "ITIRENARIO"
-        ' 
         ' ListaMostrar
         ' 
         ListaMostrar.Font = New Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point)
@@ -224,6 +214,15 @@ Partial Class inicioAdmin
         Label2.TabIndex = 64
         Label2.Text = "Mostrar"
         ' 
+        ' PictureBox1
+        ' 
+        PictureBox1.BackgroundImage = CType(resources.GetObject("PictureBox1.BackgroundImage"), Image)
+        PictureBox1.Location = New Point(641, 67)
+        PictureBox1.Name = "PictureBox1"
+        PictureBox1.Size = New Size(465, 352)
+        PictureBox1.TabIndex = 65
+        PictureBox1.TabStop = False
+        ' 
         ' inicioAdmin
         ' 
         AutoScaleDimensions = New SizeF(9F, 21F)
@@ -232,10 +231,10 @@ Partial Class inicioAdmin
         ClientSize = New Size(1288, 828)
         Controls.Add(Label2)
         Controls.Add(ListaMostrar)
-        Controls.Add(Label1)
         Controls.Add(DataGridView1)
         Controls.Add(btnPerfil)
         Controls.Add(PanelPerfil)
+        Controls.Add(PictureBox1)
         FormBorderStyle = FormBorderStyle.None
         Name = "inicioAdmin"
         StartPosition = FormStartPosition.CenterScreen
@@ -245,6 +244,7 @@ Partial Class inicioAdmin
         PanelPerfil.PerformLayout()
         CType(btnCerrarSesion, ComponentModel.ISupportInitialize).EndInit()
         CType(DataGridView1, ComponentModel.ISupportInitialize).EndInit()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -259,7 +259,7 @@ Partial Class inicioAdmin
     Friend WithEvents LabelRol As Label
     Friend WithEvents LabelNombre As Label
     Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents Label1 As Label
     Friend WithEvents ListaMostrar As ComboBox
     Friend WithEvents Label2 As Label
+    Friend WithEvents PictureBox1 As PictureBox
 End Class

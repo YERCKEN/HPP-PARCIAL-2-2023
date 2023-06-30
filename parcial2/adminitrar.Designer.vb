@@ -22,9 +22,10 @@ Partial Class adminitrar
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle4 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As DataGridViewCellStyle = New DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim resources As ComponentModel.ComponentResourceManager = New ComponentModel.ComponentResourceManager(GetType(adminitrar))
         panelIngresoDatos2 = New Panel()
         LabelUsuario = New Label()
         LabelId = New Label()
@@ -55,10 +56,17 @@ Partial Class adminitrar
         BtnSeleccionar = New Button()
         Label9 = New Label()
         LabelActividad = New Label()
+        PictureBox1 = New PictureBox()
+        PanelConfirmación = New Panel()
+        BtnAceptarEliminacion = New Button()
+        BtnCancelar = New Button()
+        LabelIncorrecto = New Label()
         panelIngresoDatos2.SuspendLayout()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         PanelBotones.SuspendLayout()
         PanelSelecion.SuspendLayout()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).BeginInit()
+        PanelConfirmación.SuspendLayout()
         SuspendLayout()
         ' 
         ' panelIngresoDatos2
@@ -296,37 +304,37 @@ Partial Class adminitrar
         DataGridView1.BorderStyle = BorderStyle.None
         DataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.None
         DataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle4.BackColor = Color.FromArgb(CByte(67), CByte(116), CByte(255))
-        DataGridViewCellStyle4.Font = New Font("Montserrat", 10.2F, FontStyle.Bold, GraphicsUnit.Point)
-        DataGridViewCellStyle4.ForeColor = Color.White
-        DataGridViewCellStyle4.Padding = New Padding(5)
-        DataGridViewCellStyle4.SelectionBackColor = Color.White
-        DataGridViewCellStyle4.SelectionForeColor = Color.FromArgb(CByte(67), CByte(116), CByte(255))
-        DataGridViewCellStyle4.WrapMode = DataGridViewTriState.True
-        DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = Color.FromArgb(CByte(67), CByte(116), CByte(255))
+        DataGridViewCellStyle1.Font = New Font("Montserrat", 10.2F, FontStyle.Bold, GraphicsUnit.Point)
+        DataGridViewCellStyle1.ForeColor = Color.White
+        DataGridViewCellStyle1.Padding = New Padding(5)
+        DataGridViewCellStyle1.SelectionBackColor = Color.White
+        DataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(CByte(67), CByte(116), CByte(255))
+        DataGridViewCellStyle1.WrapMode = DataGridViewTriState.True
+        DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         DataGridView1.ColumnHeadersHeight = 50
-        DataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle5.BackColor = SystemColors.Window
-        DataGridViewCellStyle5.Font = New Font("Microsoft JhengHei UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point)
-        DataGridViewCellStyle5.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        DataGridViewCellStyle5.SelectionBackColor = SystemColors.Control
-        DataGridViewCellStyle5.SelectionForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
-        DataGridViewCellStyle5.WrapMode = DataGridViewTriState.False
-        DataGridView1.DefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = SystemColors.Window
+        DataGridViewCellStyle2.Font = New Font("Microsoft JhengHei UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle2.ForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        DataGridViewCellStyle2.SelectionBackColor = SystemColors.Control
+        DataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        DataGridViewCellStyle2.WrapMode = DataGridViewTriState.False
+        DataGridView1.DefaultCellStyle = DataGridViewCellStyle2
         DataGridView1.EnableHeadersVisualStyles = False
         DataGridView1.Location = New Point(41, 549)
         DataGridView1.Margin = New Padding(4, 3, 4, 3)
         DataGridView1.Name = "DataGridView1"
         DataGridView1.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle6.BackColor = Color.White
-        DataGridViewCellStyle6.Font = New Font("Segoe UI", 9.6F, FontStyle.Regular, GraphicsUnit.Point)
-        DataGridViewCellStyle6.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        DataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle6.WrapMode = DataGridViewTriState.True
-        DataGridView1.RowHeadersDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = Color.White
+        DataGridViewCellStyle3.Font = New Font("Segoe UI", 9.6F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle3.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        DataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = DataGridViewTriState.True
+        DataGridView1.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
         DataGridView1.RowHeadersVisible = False
         DataGridView1.RowHeadersWidth = 51
         DataGridView1.RowTemplate.Height = 31
@@ -338,7 +346,7 @@ Partial Class adminitrar
         PanelBotones.Controls.Add(BtnEliminar)
         PanelBotones.Controls.Add(BtnActualizar)
         PanelBotones.Controls.Add(BtnAceptar)
-        PanelBotones.Location = New Point(41, 140)
+        PanelBotones.Location = New Point(172, 160)
         PanelBotones.Name = "PanelBotones"
         PanelBotones.Size = New Size(425, 199)
         PanelBotones.TabIndex = 67
@@ -377,7 +385,7 @@ Partial Class adminitrar
         ' 
         ' BtnAceptar
         ' 
-        BtnAceptar.BackColor = Color.FromArgb(CByte(67), CByte(116), CByte(255))
+        BtnAceptar.BackColor = Color.FromArgb(CByte(0), CByte(171), CByte(118))
         BtnAceptar.Cursor = Cursors.Hand
         BtnAceptar.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
         BtnAceptar.FlatAppearance.BorderSize = 0
@@ -397,7 +405,7 @@ Partial Class adminitrar
         PanelSelecion.Controls.Add(TextBoxId)
         PanelSelecion.Controls.Add(BtnSeleccionar)
         PanelSelecion.Controls.Add(Label9)
-        PanelSelecion.Location = New Point(41, 219)
+        PanelSelecion.Location = New Point(172, 219)
         PanelSelecion.Name = "PanelSelecion"
         PanelSelecion.Size = New Size(425, 96)
         PanelSelecion.TabIndex = 68
@@ -468,12 +476,81 @@ Partial Class adminitrar
         LabelActividad.TabIndex = 63
         LabelActividad.Visible = False
         ' 
+        ' PictureBox1
+        ' 
+        PictureBox1.BackgroundImage = CType(resources.GetObject("PictureBox1.BackgroundImage"), Image)
+        PictureBox1.Location = New Point(640, 101)
+        PictureBox1.Name = "PictureBox1"
+        PictureBox1.Size = New Size(465, 352)
+        PictureBox1.TabIndex = 69
+        PictureBox1.TabStop = False
+        ' 
+        ' PanelConfirmación
+        ' 
+        PanelConfirmación.AllowDrop = True
+        PanelConfirmación.BackColor = Color.FromArgb(CByte(255), CByte(222), CByte(222))
+        PanelConfirmación.Controls.Add(BtnAceptarEliminacion)
+        PanelConfirmación.Controls.Add(BtnCancelar)
+        PanelConfirmación.Controls.Add(LabelIncorrecto)
+        PanelConfirmación.Location = New Point(343, 185)
+        PanelConfirmación.Name = "PanelConfirmación"
+        PanelConfirmación.Size = New Size(602, 152)
+        PanelConfirmación.TabIndex = 70
+        PanelConfirmación.Visible = False
+        ' 
+        ' BtnAceptarEliminacion
+        ' 
+        BtnAceptarEliminacion.BackColor = Color.White
+        BtnAceptarEliminacion.Cursor = Cursors.Hand
+        BtnAceptarEliminacion.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        BtnAceptarEliminacion.FlatAppearance.BorderSize = 0
+        BtnAceptarEliminacion.FlatStyle = FlatStyle.Flat
+        BtnAceptarEliminacion.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        BtnAceptarEliminacion.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
+        BtnAceptarEliminacion.Location = New Point(142, 90)
+        BtnAceptarEliminacion.Name = "BtnAceptarEliminacion"
+        BtnAceptarEliminacion.Size = New Size(144, 41)
+        BtnAceptarEliminacion.TabIndex = 64
+        BtnAceptarEliminacion.Text = "Aceptar"
+        BtnAceptarEliminacion.UseVisualStyleBackColor = False
+        ' 
+        ' BtnCancelar
+        ' 
+        BtnCancelar.BackColor = Color.FromArgb(CByte(250), CByte(80), CByte(80))
+        BtnCancelar.Cursor = Cursors.Hand
+        BtnCancelar.FlatAppearance.BorderColor = Color.FromArgb(CByte(120), CByte(127), CByte(130))
+        BtnCancelar.FlatAppearance.BorderSize = 0
+        BtnCancelar.FlatStyle = FlatStyle.Flat
+        BtnCancelar.Font = New Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point)
+        BtnCancelar.ForeColor = Color.White
+        BtnCancelar.Location = New Point(318, 90)
+        BtnCancelar.Name = "BtnCancelar"
+        BtnCancelar.Size = New Size(144, 41)
+        BtnCancelar.TabIndex = 63
+        BtnCancelar.Text = "Cancelar"
+        BtnCancelar.UseVisualStyleBackColor = False
+        ' 
+        ' LabelIncorrecto
+        ' 
+        LabelIncorrecto.AutoSize = True
+        LabelIncorrecto.BackColor = Color.FromArgb(CByte(255), CByte(222), CByte(222))
+        LabelIncorrecto.Font = New Font("Montserrat", 14.999999F, FontStyle.Bold, GraphicsUnit.Point)
+        LabelIncorrecto.ForeColor = Color.FromArgb(CByte(250), CByte(80), CByte(80))
+        LabelIncorrecto.Location = New Point(20, 20)
+        LabelIncorrecto.Name = "LabelIncorrecto"
+        LabelIncorrecto.Padding = New Padding(20, 5, 20, 5)
+        LabelIncorrecto.Size = New Size(562, 45)
+        LabelIncorrecto.TabIndex = 62
+        LabelIncorrecto.Text = "¿ Seguro quieres eliminar el ticket #1 ?"
+        ' 
         ' adminitrar
         ' 
         AutoScaleDimensions = New SizeF(9F, 21F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.White
         ClientSize = New Size(1288, 906)
+        Controls.Add(PanelConfirmación)
+        Controls.Add(PictureBox1)
         Controls.Add(LabelActividad)
         Controls.Add(PanelSelecion)
         Controls.Add(PanelBotones)
@@ -488,6 +565,9 @@ Partial Class adminitrar
         PanelBotones.ResumeLayout(False)
         PanelSelecion.ResumeLayout(False)
         PanelSelecion.PerformLayout()
+        CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
+        PanelConfirmación.ResumeLayout(False)
+        PanelConfirmación.PerformLayout()
         ResumeLayout(False)
         PerformLayout()
     End Sub
@@ -522,4 +602,9 @@ Partial Class adminitrar
     Friend WithEvents Label9 As Label
     Friend WithEvents BtnSalirSeleccion As Button
     Friend WithEvents LabelActividad As Label
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents PanelConfirmación As Panel
+    Friend WithEvents BtnAceptarEliminacion As Button
+    Friend WithEvents BtnCancelar As Button
+    Friend WithEvents LabelIncorrecto As Label
 End Class
