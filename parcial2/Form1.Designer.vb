@@ -28,8 +28,6 @@ Partial Class Form1
         btnInicio = New ToolStripMenuItem()
         btnAdministrar = New ToolStripMenuItem()
         BtnItinerario = New ToolStripMenuItem()
-        BtnReporte = New ToolStripMenuItem()
-        ReporteToolStripMenuItem = New ToolStripMenuItem()
         ToolStripSeparator1 = New ToolStripSeparator()
         SalirToolStripMenuItem = New ToolStripMenuItem()
         toolStripSeparator5 = New ToolStripSeparator()
@@ -64,7 +62,7 @@ Partial Class Form1
         ' 
         ' btnArchivo
         ' 
-        btnArchivo.DropDownItems.AddRange(New ToolStripItem() {btnInicio, btnAdministrar, BtnItinerario, BtnReporte, ReporteToolStripMenuItem, ToolStripSeparator1, SalirToolStripMenuItem})
+        btnArchivo.DropDownItems.AddRange(New ToolStripItem() {btnInicio, btnAdministrar, BtnItinerario, ToolStripSeparator1, SalirToolStripMenuItem})
         btnArchivo.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
         btnArchivo.ImageTransparentColor = Color.FromArgb(CByte(192), CByte(0), CByte(0))
         btnArchivo.Margin = New Padding(20, 0, 0, 0)
@@ -100,23 +98,6 @@ Partial Class Form1
         BtnItinerario.Size = New Size(252, 30)
         BtnItinerario.Text = "Eliminar Usuario"
         BtnItinerario.Visible = False
-        ' 
-        ' BtnReporte
-        ' 
-        BtnReporte.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        BtnReporte.ImageTransparentColor = Color.Magenta
-        BtnReporte.Name = "BtnReporte"
-        BtnReporte.Padding = New Padding(0, 5, 0, 1)
-        BtnReporte.Size = New Size(252, 34)
-        BtnReporte.Text = "Reporte"
-        BtnReporte.Visible = False
-        ' 
-        ' ReporteToolStripMenuItem
-        ' 
-        ReporteToolStripMenuItem.ForeColor = Color.FromArgb(CByte(83), CByte(97), CByte(98))
-        ReporteToolStripMenuItem.Name = "ReporteToolStripMenuItem"
-        ReporteToolStripMenuItem.Size = New Size(252, 30)
-        ReporteToolStripMenuItem.Text = "Cancelar Ticket"
         ' 
         ' ToolStripSeparator1
         ' 
@@ -231,7 +212,6 @@ Partial Class Form1
     Friend WithEvents btnInicio As ToolStripMenuItem
     Friend WithEvents btnAdministrar As ToolStripMenuItem
     Friend WithEvents BtnItinerario As ToolStripMenuItem
-    Friend WithEvents BtnReporte As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
     Friend WithEvents SalirToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents toolStripSeparator5 As ToolStripSeparator
@@ -242,5 +222,4 @@ Partial Class Form1
     Friend WithEvents BuscarToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BtnCerrar As PictureBox
     Friend WithEvents BtnMin As PictureBox
-    Friend WithEvents ReporteToolStripMenuItem As ToolStripMenuItem
 End Class
