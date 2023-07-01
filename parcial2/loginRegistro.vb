@@ -161,7 +161,6 @@ Public Class loginRegistro
     Private Sub BtnLogin_Click(sender As Object, e As EventArgs) Handles BtnLogin.Click
 
         'LLAMADO DE FUNCIÓN
-
         If querysBd.Login(textboxUsuario.Text, TextBoxContraseña.Text) > 0 Then
 
 

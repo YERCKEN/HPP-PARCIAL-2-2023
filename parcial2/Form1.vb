@@ -158,6 +158,13 @@ Public Class Form1
 
 
     End Sub
+
+
+
+    Private Sub btnEmpresa_Click(sender As Object, e As EventArgs) Handles btnEmpresa.Click
+        empresa.Show()
+        empresa.Owner = Me
+    End Sub
 End Class
 
 

@@ -165,7 +165,16 @@ Public Class adminitrar
                         DataGridView1.DataSource = ObtenerTodosLosTicketsProcesoResaltado()
 
                     End If
+                    TextBoxEquipo.Text = ""
+                    ListaEstado.Text = ""
+                    ListaTipoSoporte.Text = ""
+                    LabelUsuario.Text = ""
+                    LabelId.Text = ""
+                    TextBoxObservacion.Text = ""
+                    TextBoxCostoFinal.Text = ""
+                    TextBoxCostoInicial.Text = ""
 
+                    DateTimePicker1.Text = ""
                     RealizarTransicion(Me)
 
                 Else
@@ -313,6 +322,16 @@ Public Class adminitrar
     End Sub
 
     Private Sub BtnSeleccionar_Click(sender As Object, e As EventArgs) Handles BtnSeleccionar.Click
+        TextBoxEquipo.Text = ""
+        ListaEstado.Text = ""
+        ListaTipoSoporte.Text = ""
+        LabelUsuario.Text = ""
+        LabelId.Text = ""
+        TextBoxObservacion.Text = ""
+        TextBoxCostoFinal.Text = ""
+        TextBoxCostoInicial.Text = ""
+        DateTimePicker1.Text = ""
+
 
         'SI NO ESTÁ VACÍO
         If TextBoxId.Text <> "" Then
@@ -358,6 +377,7 @@ Public Class adminitrar
 
                     ElseIf LabelActividad.Text = "Actualizar Ticket" Then
 
+
                         If querysBd.selectTickets(Convert.ToInt32(TextBoxId.Text)) = 1 Then
 
                             If LabelActividad.Text <> "Eliminar Ticket" Then
@@ -371,7 +391,7 @@ Public Class adminitrar
                             LabelUsuario.Text = querysBd.usuario
                             LabelId.Text = querysBd.idUsuario
                             TextBoxObservacion.Text = querysBd.Observacion
-
+                            TextBoxCostoFinal.Enabled = True
                             TextBoxCostoFinal.Text = querysBd.costoFinal
                             TextBoxCostoInicial.Text = querysBd.costoInicio
 

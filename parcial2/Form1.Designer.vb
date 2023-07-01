@@ -160,7 +160,7 @@ Partial Class Form1
         BuscarToolStripMenuItem.Margin = New Padding(0, 20, 0, 0)
         BuscarToolStripMenuItem.Name = "BuscarToolStripMenuItem"
         BuscarToolStripMenuItem.Size = New Size(125, 30)
-        BuscarToolStripMenuItem.Text = "5.5"
+        BuscarToolStripMenuItem.Text = "9.5"
         ' 
         ' BtnCerrar
         ' 
