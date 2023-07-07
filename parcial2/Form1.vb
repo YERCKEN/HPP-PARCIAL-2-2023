@@ -38,7 +38,7 @@ Public Class Form1
     Private Sub BtnCerrar_MouseEnter(sender As Object, e As EventArgs) Handles BtnCerrar.MouseEnter
         originalImage = BtnCerrar.Image
         BtnCerrar.BackColor = Color.FromArgb(255, 117, 117)
-        BtnCerrar.Image = Image.FromFile("C:\Users\edkac\OneDrive\Documentos\MEGAsync\U 2023\HPP\5. PARCIALES\PARCIAL #2\parcial2\parcial2\IMG\cancel White.png")
+        BtnCerrar.Image = Image.FromFile("C:\Users\edkac\OneDrive\Documentos\MEGAsync\U 2023\HPP\5. PARCIALES\PARCIAL #2\parcial2V3\parcial2\IMG\cancel White.png")
     End Sub
 
     Private Sub BtnCerrar_MouseLeave(sender As Object, e As EventArgs) Handles BtnCerrar.MouseLeave
